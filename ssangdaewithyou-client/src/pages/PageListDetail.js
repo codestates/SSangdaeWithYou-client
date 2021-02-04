@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ListDetail from '../components/ListDetail';
 
 // ! reference
 // import Item from '../components/Item';
@@ -6,7 +7,10 @@ import React, { useEffect } from 'react';
 function PageListDetail() {
   
   return (
-    <div>PageListDetail</div>
+    <div>
+      <div>PageListDetail</div>
+      <ListDetail/>
+    </div>
   )
 }
 

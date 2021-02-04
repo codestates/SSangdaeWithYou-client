@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import Map from '../components/Map';
+import List from '../components/List';
 
 // ! reference
 // import Item from '../components/Item';
@@ -6,7 +8,11 @@ import React, { useEffect } from 'react';
 function PageMain() {
   
   return (
-    <div>PageMain</div>
+    <div>
+      <div>PageMain</div>
+      <Map/>
+      <List/>
+    </div>
   )
 }
 
