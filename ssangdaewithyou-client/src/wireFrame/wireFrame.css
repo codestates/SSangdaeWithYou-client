@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+}
+
+html,body {
+    height: 100%;
+}
+
+#view {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#nav {
+    display: flex;
+    border: 1px solid blue;
+    padding: 5px;
+    height: 10%;
+    width: 100%;
+    margin: 0 0 5px 0;
+    justify-content: center;
+}
+
+#navLeft {
+    flex: 1 1 auto;
+    width: 30%;
+}
+
+#navCenter {
+    display: flex;
+    flex: 1 1 auto;
+    margin: 0 5px 0;
+    width: 30%;
+    justify-content: center;
+}
+
+#navRight {
+    flex: 1 1 auto;
+    display: flex;
+    width: 30%;
+    justify-content: flex-end;
+}
+
+.navContents {
+    border: 1px dotted rgb(144, 144, 240); 
+    padding: 5px;
+    width: 30%;
+}
+
+#mapAndList {
+    display: flex;
+    height: 90%;
+    width: 100%;
+}
+#map {
+    border: 1px solid green;
+    margin: 0 5px 0 0;
+    flex: 7 1 auto;
+    
+}
+
+#list {
+    display: flex;
+    border: 1px solid rgb(205, 205, 38);
+    flex: 3 1 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#enroll {
+    border: 1px solid rgb(126, 126, 40);
+    margin: 0 5px 0;
+    height: 10%;
+}
+
+#myPage {
+    display: flex;
+    border: 1px solid rgb(29, 183, 239);
+    height: 90%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#userName {
+    height: 15%;
+    margin: 0 2%;
+    text-align: center;
+}
+
+#email {
+    height: 15%;
+    margin: 5% 2%;
+    text-align: center;
+}
+
+#nickName {
+    height: 15%;
+    margin: 0 2% 5%;
+    text-align: center;
+}
+
+#forCenter {
+    display: flex;
+    height: 15%;
+    justify-content: center;
+}
+
+#editPassword {
+    height: 80%;
+    margin: 0 2%;
+    width: 70%;
+    text-align: center;
+}
+
+.myPageContents {
+    border: 1px solid rgb(0, 0, 0);
+}
+
+#PlaceUpload {
+    display: flex;
+    border: 1px solid rgb(29, 183, 239);
+    height: 90%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#placeName {
+    height: 30%;
+    margin: 0 2%;
+    text-align: center;
+}
+
+#placeDetail {
+    height: 30%;
+    margin: 5% 2%;
+    text-align: center;
+}
+
+#registerPlace {
+    height: 60%;
+    width: 30%;
+    margin: 0 2%;
+    text-align: center;
+}
