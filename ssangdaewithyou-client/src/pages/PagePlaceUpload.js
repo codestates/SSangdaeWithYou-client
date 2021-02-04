@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PlaceUpload from '../components/PlaceUpload';
 
 // ! reference
 // import Item from '../components/Item';
@@ -6,7 +7,10 @@ import React, { useEffect } from 'react';
 function PagePlaceUpload() {
   
   return (
-    <div>PagePlaceUpload</div>
+    <div>
+      <div>PagePlaceUpload</div>
+      <PlaceUpload/>
+    </div>
   )
 }
 

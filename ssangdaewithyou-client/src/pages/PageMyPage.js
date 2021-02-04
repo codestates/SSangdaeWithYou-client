@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import MyPage from '../components/MyPage';
 
 // ! reference
 // import Item from '../components/Item';
@@ -6,7 +7,10 @@ import React, { useEffect } from 'react';
 function PageMyPage() {
   
   return (
-    <div>PageMyPage</div>
+    <div>
+      <div>PageMyPage</div>
+      <MyPage/>
+    </div>
   )
 }
 
