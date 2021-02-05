@@ -8,8 +8,7 @@ import List from '../components/List';
 function PageMain() {
   
   return (
-    <div>
-      <div>PageMain</div>
+    <div id="mapAndList">
       <Map/>
       <List/>
     </div>

@@ -7,10 +7,7 @@ import MyPage from '../components/MyPage';
 function PageMyPage() {
   
   return (
-    <div>
-      <div>PageMyPage</div>
-      <MyPage/>
-    </div>
+    <MyPage/>
   )
 }
 

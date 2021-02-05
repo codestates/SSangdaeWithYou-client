@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function Map({ cartItems }) {
 
   return (
-    <div>
+    <div id="map">
       Map
     </div>
   );
