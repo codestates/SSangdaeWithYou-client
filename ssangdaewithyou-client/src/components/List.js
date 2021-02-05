@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 function List({ cartItems }) {
 
   return (
-    <div>
+    <div id="list">
       List
+      <div id="enroll">Enroll</div>
     </div>
   );
 }

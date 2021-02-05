@@ -7,10 +7,7 @@ import PlaceUpload from '../components/PlaceUpload';
 function PagePlaceUpload() {
   
   return (
-    <div>
-      <div>PagePlaceUpload</div>
-      <PlaceUpload/>
-    </div>
+    <PlaceUpload/>
   )
 }
 

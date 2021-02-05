@@ -6,8 +6,17 @@ import { Link } from 'react-router-dom';
 function Nav({ cartItems }) {
 
   return (
-    <div id="nav-body">
-      Nav
+    <div id="nav">
+      <div id="navLeft"></div>
+      <div id="navCenter">
+        <img src="ssangDaeLogo.jpeg" />
+        {/* <img src="../ssangDaeLogo.jpeg" style="max-height:100%; width:auto;"/> */}
+      </div>
+      <div id="navRight">
+        <div className="navContents">지도</div>
+        <div className="navContents">My Page</div>
+        <div className="navContents">Login /Logout</div>
+      </div>
     </div>
   );
 }

@@ -59,23 +59,28 @@ function App() {
   // })
 
   return (
-    <Router>
-      <Nav/>
-      <Switch>
-        <Route exact={true} path="/">
-          <PageMain/>
-        </Route>
-        <Route path="/user/info">
-          <PageMyPage/>
-        </Route>
-        <Route path="/place/upload">
-          <PagePlaceUpload/>
-        </Route>
-        <Route path="/list/detail">
-          <PageListDetail/>
-        </Route>
-      </Switch>
-    </Router>
+    <div id="view">
+      <Router>
+        <Nav/>
+        <Switch>
+          {/* <Route exact={true} path="/">
+            <PageMain/>
+          </Route> */}
+          <Route path="/user/info">
+            <PageMyPage/>
+          </Route>
+          <Route path="/place/upload">
+            <PagePlaceUpload/>
+          </Route>
+          <Route path="/list/detail">
+            <PageListDetail/>
+          </Route>
+          <Route path="/">
+            <PageMain/>
+          </Route>
+        </Switch>
+      </Router>
+    </div>
     // ! reference
     // <Router>
     //   <Nav cartItems={cartItems}/>
