@@ -7,10 +7,7 @@ import ListDetail from '../components/ListDetail';
 function PageListDetail() {
   
   return (
-    <div>
-      <div>PageListDetail</div>
-      <ListDetail/>
-    </div>
+    <ListDetail/>
   )
 }
 
