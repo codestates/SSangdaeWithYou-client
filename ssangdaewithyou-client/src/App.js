@@ -9,11 +9,6 @@ import axios from 'axios'
 
 // ! ./components
 import Nav from './components/Nav';
-// import Map from './components/Map';
-// import List from './components/List';
-// import MyPage from './components/MyPage';
-// import PlaceUpload from './components/PlaceUpload';
-// import ListDetail from './components/ListDetail';
 
 // ! ./pages
 import PageMain from './pages/PageMain';
