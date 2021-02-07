@@ -2,6 +2,7 @@
 
 .eslintcache
 .env
+/ignore
 
 # dependencies
 /node_modules
