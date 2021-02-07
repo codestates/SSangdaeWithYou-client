@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+/* 페이지 전환 시 덜컥거림 방지 */
+html {
+  overflow-y:scroll;
+}
+
 html,body {
   height: 100%;
 }
