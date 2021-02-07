@@ -7,11 +7,31 @@ function MyPage({ cartItems }) {
 
   return (
     <div id="myPage">
-      <div id="userName" className="myPageContents">userName</div>
-      <div id="email" className="myPageContents">email</div>
-      <div id="nickName" className="myPageContents">nickName</div>
+      <div id="userName" className="myPageContents">
+        <div className="userForm">
+          <img src="../img/mypage.jpg" id="userNameImg" />
+          <div className="userEl">ID</div>
+        </div>
+        <div className="userInput">userName</div>
+      </div>
+      <div id="email" className="myPageContents">
+        <div className="userForm">
+          <img src="../img/email.jpg" id="userNameImg" />
+          <div className="userEl">E-mail</div>
+        </div>
+        <div className="userInput">userEmail</div>
+      </div>
+      <div id="nickName" className="myPageContents">
+        <div className="userForm">
+          <img src="../img/nickName.jpg" id="userNameImg" />
+          <div className="userEl">Nick-name</div>
+        </div>
+        <div className="userInput">userNickName</div>
+      </div>
       <div id="forCenter">
-          <div id="editPassword" className="myPageContents">비밀번호 수정</div>
+        <div id="editPassword">
+          <div className="passwordText">Change password</div>
+        </div>
       </div>
     </div>
   );

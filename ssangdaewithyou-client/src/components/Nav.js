@@ -1,6 +1,4 @@
 import React from 'react';
-
-// !
 import { Link } from 'react-router-dom';
 
 function Nav({ cartItems }) {
@@ -13,10 +11,10 @@ function Nav({ cartItems }) {
       </div>
       <div id="navRight">
         <div id="navMap" className="navContents">
-          <img src="../img/map.jpg" id="mapImg" />
+          <Link to="/"><img src="../img/map.jpg" id="mapImg" /></Link>
         </div>
         <div id="navMypage" className="navContents">
-          <img src="../img/mypage.jpg" id="mypageImg" />
+        <Link to="/user/info"><img src="../img/mypage.jpg" id="mypageImg" /></Link>
         </div>
         <div className="navContents" >Login /Logout</div>
       </div>
