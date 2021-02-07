@@ -8,7 +8,6 @@ html,body {
 
 #view {
   display: flex;
-  height: 100%;
   justify-content: center;
   flex-direction: column;
 }
@@ -18,10 +17,10 @@ html,body {
   display: flex;
   border: 1px solid blue;
   padding: 5px;
-  height: 10%;
   width: 100%;
   margin: 0 0 5px 0;
   justify-content: center;
+  height: 80px;
 }
 
 #navLeft {
@@ -37,6 +36,11 @@ html,body {
   justify-content: center;
 }
 
+#logo {
+    height: 70px;
+    width: 68px;
+}
+
 #navRight {
   flex: 1 1 auto;
   display: flex;
@@ -45,38 +49,107 @@ html,body {
 }
 
 .navContents {
-  border: 1px dotted rgb(144, 144, 240); 
+  /* border: 1px dotted rgb(144, 144, 240);  */
   padding: 5px;
-  width: 30%;
+  width: 300px;
+  text-align: center;
+}
+
+#navMap {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+#mapImg {
+  height: 50px;
+  width: 44px;
+}
+
+#navMypage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+#mypageImg {
+  margin-top: -7px;
+  height: 45px;
+  width: 44px;
+}
+
+@media screen and (max-width: 500px) {    
+  #nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 140px;
+  }
+
+  #navLeft {
+    display: none;
+  }
+
+  #navCenter {
+    align-items: center;
+    width: 100%;
+  }
+
+  #mypageImg {
+    margin-top: 0px;
+  }
+
+  #navRight {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
 }
 
 /* ----------------- map ------------------*/ 
 #mapAndList {
   display: flex;
-  height: 90%;
+  height: 100%;
   width: 100%;
 }
 #map {
   border: 1px solid green;
   margin: 0 5px 0 0;
-  flex: 7 1 auto;
   width: 70%;
+  height: 800px;
 }
 
 /* ----------------- list after login page ------------------*/ 
 #list {
   display: flex;
   border: 1px solid rgb(205, 205, 38);
-  flex: 3 1 auto;
   flex-direction: column;
   justify-content: flex-start;
   width: 30%;
 }
 
 #enroll {
-  border: 1px solid rgb(126, 126, 40);
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 10px;
   margin: 0 5px 0;
-  height: 10%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+#enrollImg {
+  height: 80%;
+  margin-top: 5px;
+  margin-right: 2%;
+}
+
+#enrollText {
+  margin-top: 13px;
+  font-size: 26px;
+  margin-left: 2%;
 }
 
 #listEl {
@@ -91,21 +164,21 @@ html,body {
 .listPlaceName {
   font-size: 20px;
   font-weight: bold;
-  flex: 1 1 auto;
-  height: 40%;
+  /* flex: 1 1 auto; */
+  height: 40px;
 }
 
 .listPlaceUser {
   margin: 1% 0;
-  flex: 1 1 auto;
-  height: 30%;
+  /* flex: 1 1 auto; */
+  height: 30px;
 }
 
 .countLikeOrDislike {
   display: flex;
   justify-content: center;
-  flex: 1 1 auto;
-  height: 30%;
+  /* flex: 1 1 auto; */
+  height: 30px;
 }
 
 .listLike {
@@ -129,32 +202,90 @@ html,body {
   width: auto;
 }
 
+@media screen and (max-width: 1000px) {
+  #mapAndList {
+    display: flex;
+    flex-direction: column;
+    /* height: 850px; */
+  }
+
+  #map {
+    /* min-height: 400px; */
+    height: 400px;
+    margin: 0 0px 0 0;
+    width: 100%;
+  }
+
+  #list {
+    border: 1px solid rgb(205, 205, 38);
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    flex: 3 1 auto;
+  }
+  
+}
+
 /* ----------------- myPage ------------------*/ 
 #myPage {
   display: flex;
-  border: 1px solid rgb(29, 183, 239);
-  height: 90%;
+  /* border: 1px solid rgb(29, 183, 239); */
+  height: 600px;
   width: 100%;
   flex-direction: column;
-justify-content: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 500px) {  
+  #myPage {
+    margin-top: -50px;
+  }
 }
 
 #userName {
   height: 15%;
-  margin: 0 2%;
+  margin: 5% 10% 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.userForm {
+  display: flex;
+  justify-content: center;
+}
+
+#userNameImg {
+  height: 25px;
+  width: 24px;
+}
+
+.userEl {
+  font-size: 25px;
+  margin-left: 2%;
+}
+
+.userInput {
+  margin-bottom: 6px;
 }
 
 #email {
   height: 15%;
-  margin: 5% 2%;
+  margin: 5% 10%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #nickName {
   height: 15%;
-  margin: 0 2% 5%;
+  margin: 0 10% 5%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* ----------------- use in anything for center------------------*/ 
@@ -166,21 +297,32 @@ justify-content: center;
 /* ----------------- use in anything for center------------------*/ 
 
 #editPassword {
-  height: 80%;
-  margin: 0 2%;
-  width: 70%;
+  height: 40px;
+  margin: 5% 2%;
+  width: 40%;
   text-align: center;
+  border: 3px solid #8e8e8e;
+  background-color: #8e8e8e;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.passwordText {
+  color: rgb(255, 255, 255);
+  margin-top: 1px;
 }
 
 .myPageContents {
-  border: 1px solid rgb(0, 0, 0);
+  border-bottom: 3px solid #8e8e8e;
 }
 
 /* ----------------- PlaceUpload ------------------*/ 
 #PlaceUpload {
   display: flex;
   border: 1px solid rgb(29, 183, 239);
-  height: 90%;
+  height: 400px;
   width: 100%;
   flex-direction: column;
   justify-content: center;
@@ -189,20 +331,26 @@ justify-content: center;
 #placeName {
   height: 30%;
   margin: 0 2%;
+  padding: 10% 0;
   text-align: center;
+  border-bottom: 1px solid #dadada;
 }
 
 #placeDetail {
   height: 30%;
-  margin: 5% 2%;
+  margin: 0 2%;
+  padding: 10% 0 0 0;
   text-align: center;
+  border-bottom: 1px solid #dadada;
 }
 
 #registerPlace {
   height: 60%;
   width: 30%;
   margin: 0 2%;
+  padding: 10% 0;
   text-align: center;
+  border-bottom: 1px solid #dadada;
 }
 
 /* ----------------- ListDetail ------------------*/ 
@@ -243,7 +391,7 @@ justify-content: center;
   display: flex;
   flex: 1 1 auto;
   justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
 }
 
 #detailUserId {
@@ -258,19 +406,27 @@ justify-content: center;
   padding: 5px;
   height: 10%;
   width: 100%;
-  margin: 0 0 5px 0;
   justify-content: flex-end;
 }
 
 #like {
+  display: flex;
   border: 1px solid rgb(0, 0, 0);
   flex: 0.1 1 auto;
+  justify-content: center;
+}
+
+#likeOrDislikeText {
+  font-size: 25px;
+  margin: 5px 0 0 10px;
 }
 
 #disLike {
+  display: flex;
   border: 1px solid rgb(0, 0, 0);
   flex: 0.1 1 auto;
   margin: 0 0 0 1%;
+  justify-content: center;
 }
 
 #message {
@@ -297,25 +453,39 @@ justify-content: center;
   border: 1px solid rgb(0, 0, 0);
   margin: 1%;
   width: 40%;
+  text-align: center;
 }
 
 #userText {
   flex: 1 1 auto;
-  border: 1px solid rgb(0, 0, 0);
-  margin: 0 1% 0;
+  text-align: center;
 }
 
 #forAlignButton {
-  flex: 0.5 1 auto;
+  height: 35px;
   display: flex;
   justify-content: flex-end;
   margin: 1%;
 }
 
 #messageButton {
-  border: 1px solid rgb(0, 0, 0);
-  width: 100px;
+  display: flex;
+  justify-content: center;
+  border: 2px solid rgb(0, 0, 0);
+  width: 30%;
   margin: 0 5% 0 0;
+  border-radius: 10px;
+}
+
+#messageButtonImg {
+  max-width:30%; 
+  height:80%;
+  margin-top: 3px;
+}
+
+#messageButtonText {
+  font-size: 25px;
+  margin-left: 5%;
 }
 
 #questList {
