@@ -9,15 +9,16 @@ function Nav({ cartItems }) {
     <div id="nav">
       <div id="navLeft"></div>
       <div id="navCenter">
-        <img src="../ssangDaeLogo.jpeg" alt="logo" />
-        {/* <img src="../ssangDaeLogo.jpeg" style="max-height:100%; width:auto;"/> */}
+        <img src="../img/ssangDaeLogo.jpeg" id="logo" />
       </div>
       <div id="navRight">
-        <Link to="/" className="navContents">지도</Link>
-        {/* <div className="navContents">지도</div> */}
-        <Link to="/user/info" className="navContents">My Page</Link>
-        {/* <div className="navContents">My Page</div> */}
-        <div className="navContents">Login /Logout</div>
+        <div id="navMap" className="navContents">
+          <img src="../img/map.jpg" id="mapImg" />
+        </div>
+        <div id="navMypage" className="navContents">
+          <img src="../img/mypage.jpg" id="mypageImg" />
+        </div>
+        <div className="navContents" >Login /Logout</div>
       </div>
     </div>
   );
