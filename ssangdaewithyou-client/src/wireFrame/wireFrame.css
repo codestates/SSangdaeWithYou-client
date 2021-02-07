@@ -15,7 +15,7 @@ html,body {
 /* ----------------- nav ------------------*/ 
 #nav {
   display: flex;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   padding: 5px;
   width: 100%;
   margin: 0 0 5px 0;
@@ -238,17 +238,17 @@ html,body {
 
 @media screen and (max-width: 500px) {  
   #myPage {
-    margin-top: -50px;
+    height: 400px;
   }
 }
 
 #userName {
-  height: 15%;
+  height: 411px;
   margin: 5% 10% 0;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .userForm {
@@ -268,24 +268,26 @@ html,body {
 
 .userInput {
   margin-bottom: 6px;
+  border-bottom: 3px solid #8e8e8e;
+  margin-top: 20px;
 }
 
 #email {
-  height: 15%;
+  height: 411px;
   margin: 5% 10%;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;;
 }
 
 #nickName {
-  height: 15%;
+  height: 411px;
   margin: 0 10% 5%;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;;
 }
 
 /* ----------------- use in anything for center------------------*/ 
@@ -314,44 +316,70 @@ html,body {
   margin-top: 1px;
 }
 
-.myPageContents {
+/* .myPageContents {
   border-bottom: 3px solid #8e8e8e;
-}
+} */
 
 /* ----------------- PlaceUpload ------------------*/ 
 #PlaceUpload {
   display: flex;
-  border: 1px solid rgb(29, 183, 239);
-  height: 400px;
+  /* border: 1px solid rgb(29, 183, 239); */
+  height: 500px;
   width: 100%;
   flex-direction: column;
   justify-content: center;
 }
 
-#placeName {
-  height: 30%;
-  margin: 0 2%;
-  padding: 10% 0;
+.initText {
+  height: 50px;
   text-align: center;
-  border-bottom: 1px solid #dadada;
+  padding-top: 15px;
+}
+
+#placeName {
+  height: 150px;
+  margin: 0 5%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inputPlaceName {
+  align-items: center;
+  height: 50px;
+  font-size: 20px;
+  border: #ffffff;
+}
+
+.forPlaceButtom {
+  border-bottom: 1px solid #8e8e8e;
+  margin-top: 20px;
 }
 
 #placeDetail {
-  height: 30%;
-  margin: 0 2%;
-  padding: 10% 0 0 0;
+  height: 150px;
+  margin: 0 5%;
   text-align: center;
-  border-bottom: 1px solid #dadada;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.inputPlaceDetail {
+  align-items: center;
+  height: 50px;
+  font-size: 20px;
+  border: #ffffff;
+}
+/* 
 #registerPlace {
-  height: 60%;
+  height: 100px;
   width: 30%;
-  margin: 0 2%;
-  padding: 10% 0;
+  margin: 0 5%;
   text-align: center;
   border-bottom: 1px solid #dadada;
-}
+} */
 
 /* ----------------- ListDetail ------------------*/ 
 #listDetail {
@@ -406,7 +434,7 @@ html,body {
   padding: 5px;
   height: 10%;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: space-around;;
 }
 
 #like {
@@ -414,6 +442,11 @@ html,body {
   border: 1px solid rgb(0, 0, 0);
   flex: 0.1 1 auto;
   justify-content: center;
+}
+
+.likeOrDislikeImg {
+  width: 48px;
+  height: 39px;
 }
 
 #likeOrDislikeText {
@@ -471,7 +504,7 @@ html,body {
 #messageButton {
   display: flex;
   justify-content: center;
-  border: 2px solid rgb(0, 0, 0);
+  background-color: #8e8e8e;
   width: 30%;
   margin: 0 5% 0 0;
   border-radius: 10px;
@@ -484,15 +517,16 @@ html,body {
 }
 
 #messageButtonText {
-  font-size: 25px;
-  margin-left: 5%;
+  font-size: 20px;
+  margin-top: 7px;
+  color: rgb(255, 255, 255);
 }
 
 #questList {
   display: flex;
   margin: 5% 1% 1%;
   flex-direction: column;
-  border-bottom: 1px solid brown;
+  border-bottom: 2px solid #8e8e8e;
 }
 
 #idOrDate {
