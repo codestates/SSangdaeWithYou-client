@@ -11,7 +11,7 @@ function MyPage({ cartItems }) {
       <div id="email" className="myPageContents">email</div>
       <div id="nickName" className="myPageContents">nickName</div>
       <div id="forCenter">
-        <div id="editPassword" className="myPageContents">비밀번호 수정</div>
+          <div id="editPassword" className="myPageContents">비밀번호 수정</div>
       </div>
     </div>
   );
