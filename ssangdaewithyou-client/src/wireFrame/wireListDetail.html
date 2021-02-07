@@ -7,16 +7,20 @@
     <title>wireFrame_List Detail</title>
 </head>
 <body>
-    <div id="view"> view
+    <div id="view">
         <div id="nav">
             <div id="navLeft"></div>
             <div id="navCenter">
-                <img src="../ssangDaeLogo.jpeg" style="max-height:100%; width:auto;">
+                <img src="../../public/img/ssangDaeLogo.jpeg" id="logo">
             </div>
             <div id="navRight">
-                <div class="navContents">지도</div>
-                <div class="navContents">My Page</div>
-                <div class="navContents">Login /Logout</div>
+                <div id="navMap" class="navContents">
+                    <img src="../../public/img/map.jpg" id="mapImg">
+                </div>
+                <div id="navMypage" class="navContents">
+                    <img src="../../public/img/mypage.jpg" id="mypageImg">
+                </div>
+                <div class="navContents" >Login /Logout</div>
             </div>
         </div>
         <div id="listDetail">
@@ -25,33 +29,65 @@
               <div>장소명 :</div>
               <div id="placeEl">placeName</div>
             </div>
-            <div id="detailPlaceDetail">
-              <div>요약 : </div>
-              <div id="placeEl">comment</div>
-            </div>
             <div id="detailUserId">
               <div>정복자 : </div>
               <div id="placeEl">userId</div>
             </div>
+            <div id="detailPlaceDetail">
+              <div>요약 : </div>
+              <div id="placeEl">저는 이곳이 너무 좋아요 흐랄랄랄라 내용을 더 길게 써 보아요 흐랄랄랄라</div>
+            </div>
           </div>
+          <!-- 좋아요 싫어요 아이콘 등록했어용 -->
           <div id="likeOrDislike">
-            <div id="like">좋아요</div>
-            <div id="disLike">싫어요</div>
+            <div id="like">
+              <img src="../../public/img/like.jpg" class="likeOrDislikeImg">
+              <div id="likeOrDislikeText">추천해요</div>
+            </div>
+            <div id="disLike">
+              <img src="../../public/img/dislike.jpg" class="likeOrDislikeImg">
+              <div id="likeOrDislikeText">비추해요</div>
+            </div>
           </div>
+        </div>
           <div id="message">
+            <!-- 댓글 등록창 수정했어용 -->
             <div id="userMessage">
-              <div id="userId">Id</div>
-              <div id="userText">댓글 내용</div>
+              <div id="userId">ID</div>
+              <textarea placeholder="댓글 내용" id="userText"></textarea>
               <div id="forAlignButton">
-                <button id="messageButton">등록</button>
+                <div id="messageButton">
+                  <div id="messageButtonText">submit</div>
+                </div>
               </div>
             </div>
             <div id="questList">
               <div id="idOrDate">
-                <div class="guestId">Id</div>
+                <div class="guestId">대장아재</div>
                 <div class="guestDate">2021-02-04 21:50:20</div>
               </div>
-              <div class="guestText">댓글 내용</div>
+              <div class="guestText">꺄르르르르르르 우리 아재들 담배 맛이쪄요?</div>
+            </div>
+            <div id="questList">
+              <div id="idOrDate">
+                <div class="guestId">새끼아재</div>
+                <div class="guestDate">2021-02-04 21:50:20</div>
+              </div>
+              <div class="guestText">끼릭끼릭 츄릅츄릅 햘딱햘딱</div>
+            </div>
+            <div id="questList">
+              <div id="idOrDate">
+                <div class="guestId">둘째아재</div>
+                <div class="guestDate">2021-02-04 21:50:20</div>
+              </div>
+              <div class="guestText">저는 담배를 안피워요. 저는 두줄 이상을 써야하는 임무가 있답니다. 아핳아핳 호로로로로롤로롤</div>
+            </div>
+            <div id="questList">
+              <div id="idOrDate">
+                <div class="guestId">중간아재</div>
+                <div class="guestDate">2021-02-04 21:50:20</div>
+              </div>
+              <div class="guestText">나 연초피는줄 알아찌?! 데헷데헷 나는 전자담배 핀다. 데헷데헷</div>
             </div>
           </div>
         </div>
