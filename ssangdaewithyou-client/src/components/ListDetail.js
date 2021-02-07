@@ -35,10 +35,10 @@ function ListDetail({ cartItems }) {
         </div>
         <div id="questList">
           <div id="idOrDate">
-            <div class="guestId">Id</div>
-            <div class="guestDate">2021-02-04 21:50:20</div>
+            <div className="guestId">Id</div>
+            <div className="guestDate">2021-02-04 21:50:20</div>
           </div>
-          <div class="guestText">댓글 내용</div>
+          <div className="guestText">댓글 내용</div>
         </div>
       </div>
     </div>
