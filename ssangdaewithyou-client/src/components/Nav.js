@@ -9,7 +9,7 @@ function Nav({ cartItems }) {
     <div id="nav">
       <div id="navLeft"></div>
       <div id="navCenter">
-        <img src="../ssangDaeLogo.jpeg" alt="logo" />
+        <img src="../img/ssangDaeLogo.jpeg" alt="logo" />
         {/* <img src="../ssangDaeLogo.jpeg" style="max-height:100%; width:auto;"/> */}
       </div>
       <div id="navRight">
