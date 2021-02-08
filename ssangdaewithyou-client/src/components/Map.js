@@ -19,14 +19,14 @@ function Map() {
         error={<p>Maps Load Error</p>}
         loading={<p>Maps Loading...</p>}
       >
-        {/* <button onClick={centerChangToNaver}>Pan To Naver</button> */}
+        {/* <button onClick={centerChangeToSomewhere}>Pan To Somewhere</button> */}
         <NaverMap 
           id='maps-examples-map-simple'
           style={{
             width: '100%',
             height: '100%',
           }}
-          center={center} // ! '현재 위치로 가기 기능'을 구현한다면 사용할 것(근데 굳이 필요 없을 듯)
+          center={center} // ! '현재 위치로 가기 기능'을 버튼 추가?
           defaultZoom={12} // ! 지도 초기 확대 배율
           // zoomControl="true" // ! 난 이거 빼도 괜찮다고 생각해
           onClick={e => {

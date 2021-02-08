@@ -1,9 +1,6 @@
 import React from 'react';
 
-// !
-import { Link } from 'react-router-dom';
-
-function PlaceUpload({ cartItems }) {
+function PlaceUpload() {
 
   return (
     <div id="PlaceUpload">

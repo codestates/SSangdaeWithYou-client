@@ -1,9 +1,6 @@
 import React from 'react';
 
-// !
-import { Link } from 'react-router-dom';
-
-function List({ cartItems }) {
+function List() {
 
   return (
     <div id="list">
