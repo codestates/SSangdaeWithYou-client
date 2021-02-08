@@ -25,7 +25,7 @@ import { fakeData } from './fakeData/fakeData';
 
 
 function App() {
-  const [isLogin, setIslogin] = useState(false);
+  const [isLogin, setIslogin] = useState(true);
   // ! reference
   // const [items, setItems] = useState(initialState.items);
   // const [cartItems, setCartItems] = useState(initialState.cartItems);
@@ -81,10 +81,10 @@ function App() {
         </Router>
       </div>
     ) : (
+      <Router>
       <div id="overlayWrapper">
         <Modal/>
         <div id="overlayView">
-          <Router>
             <Nav/>
             <Switch>
               {/* <Route exact={true} path="/">
@@ -103,9 +103,9 @@ function App() {
                 <PageMain/>
               </Route>
             </Switch>
-          </Router>
         </div>
       </div>
+      </Router>
     )
   );
 }
