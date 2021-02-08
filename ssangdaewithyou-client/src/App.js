@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,8 +21,6 @@ import './App.css';
 
 // ! for fakeData
 import { fakeData } from './fakeData/fakeData';
-
-
 
 function App() {
   // ! reference
@@ -76,18 +74,6 @@ function App() {
         </Switch>
       </Router>
     </div>
-    // ! reference
-    // <Router>
-    //   <Nav cartItems={cartItems}/>
-    //   <Switch>
-    //     <Route exact={true} path="/">
-    //       <ItemListContainer items={items} addToCart={addToCart} cartItems={cartItems} />
-    //     </Route>
-    //     <Route path="/shoppingcart">
-    //       <ShoppingCart cartItems={cartItems} items={items} setCartItems={setCartItems} />
-    //     </Route>
-    //   </Switch>
-    // </Router>
   );
 }
 
