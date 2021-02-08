@@ -4,21 +4,21 @@ function MyPage() {
 
   return (
     <div id="myPage">
-      <div id="userName" className="myPageContents">
+      <div id="userName">
         <div className="userForm">
           <img src="../img/mypage.jpg" id="userNameImg" />
           <div className="userEl">ID</div>
         </div>
         <div className="userInput">userName</div>
       </div>
-      <div id="email" className="myPageContents">
+      <div id="email">
         <div className="userForm">
           <img src="../img/email.jpg" id="userNameImg" />
           <div className="userEl">E-mail</div>
         </div>
         <div className="userInput">userEmail</div>
       </div>
-      <div id="nickName" className="myPageContents">
+      <div id="nickName">
         <div className="userForm">
           <img src="../img/nickName.jpg" id="userNameImg" />
           <div className="userEl">Nick-name</div>

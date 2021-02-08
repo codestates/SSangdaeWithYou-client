@@ -10,7 +10,7 @@ function List() {
       <div id="listEl">
         <div className="listPlaceName">장소명</div>
         <div className="listPlaceUser">정복자</div>
-        <div className="countLikeOrDislike">
+        {/* <div className="countLikeOrDislike">
           <div className="listLike">
             <img src="../img/like.jpg" className="countImg" />
             <div className="count">7</div>
@@ -19,12 +19,12 @@ function List() {
             <img src="../img/dislike.jpg" className="countImg" />
             <div className="count">2</div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div id="listEl">
         <div className="listPlaceName">장소명</div>
         <div className="listPlaceUser">정복자</div>
-        <div className="countLikeOrDislike">
+        {/* <div className="countLikeOrDislike">
           <div className="listLike">
             <img src="../img/like.jpg" className="countImg" />
             <div className="count">7</div>
@@ -33,12 +33,12 @@ function List() {
             <img src="../img/dislike.jpg" className="countImg" />
             <div className="count">2</div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div id="listEl">
         <div className="listPlaceName">장소명</div>
         <div className="listPlaceUser">정복자</div>
-        <div className="countLikeOrDislike">
+        {/* <div className="countLikeOrDislike">
           <div className="listLike">
             <img src="../img/like.jpg" className="countImg" />
             <div className="count">7</div>
@@ -47,12 +47,12 @@ function List() {
             <img src="../img/dislike.jpg" className="countImg" />
             <div className="count">2</div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div id="listEl">
         <div className="listPlaceName">장소명</div>
         <div className="listPlaceUser">정복자</div>
-        <div className="countLikeOrDislike">
+        {/* <div className="countLikeOrDislike">
           <div className="listLike">
             <img src="../img/like.jpg" className="countImg" />
             <div className="count">7</div>
@@ -61,7 +61,7 @@ function List() {
             <img src="../img/dislike.jpg" className="countImg" />
             <div className="count">2</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
