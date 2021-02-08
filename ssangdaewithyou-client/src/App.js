@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,6 +9,7 @@ import axios from 'axios'
 
 // ! ./components
 import Nav from './components/Nav';
+import Modal from './components/Modal';
 
 // ! ./pages
 import PageMain from './pages/PageMain';
@@ -22,7 +23,9 @@ import './App.css';
 // ! for fakeData
 import { fakeData } from './fakeData/fakeData';
 
+
 function App() {
+  const [isLogin, setIslogin] = useState(false);
   // ! reference
   // const [items, setItems] = useState(initialState.items);
   // const [cartItems, setCartItems] = useState(initialState.cartItems);
@@ -52,28 +55,58 @@ function App() {
   // })
 
   return (
-    <div id="view">
-      <Router>
-        <Nav/>
-        <Switch>
-          {/* <Route exact={true} path="/">
-            <PageMain/>
-          </Route> */}
-          <Route path="/user/info">
-            <PageMyPage/>
-          </Route>
-          <Route path="/place/upload">
-            <PagePlaceUpload/>
-          </Route>
-          <Route path="/list/detail">
-            <PageListDetail/>
-          </Route>
-          <Route path="/">
-            <PageMain/>
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    // 로그인 상태에 따른 모달창
+    // islogin ? 밑에 있는것 : 모달창
+    isLogin ? (
+      <div id="view">
+        <Router>
+          <Nav/>
+          <Switch>
+            {/* <Route exact={true} path="/">
+              <PageMain/>
+            </Route> */}
+            <Route path="/user/info">
+              <PageMyPage/>
+            </Route>
+            <Route path="/place/upload">
+              <PagePlaceUpload/>
+            </Route>
+            <Route path="/list/detail">
+              <PageListDetail/>
+            </Route>
+            <Route path="/">
+              <PageMain/>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    ) : (
+      <div id="overlayWrapper">
+        <Modal/>
+        <div id="overlayView">
+          <Router>
+            <Nav/>
+            <Switch>
+              {/* <Route exact={true} path="/">
+                <PageMain/>
+              </Route> */}
+              <Route path="/user/info">
+                <PageMyPage/>
+              </Route>
+              <Route path="/place/upload">
+                <PagePlaceUpload/>
+              </Route>
+              <Route path="/list/detail">
+                <PageListDetail/>
+              </Route>
+              <Route path="/">
+                <PageMain/>
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+      </div>
+    )
   );
 }
 
