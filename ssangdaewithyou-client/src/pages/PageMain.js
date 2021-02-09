@@ -1,7 +1,6 @@
 import React from 'react';
 import Map from '../components/Map';
 import List from '../components/List';
-
 // ! reference
 // import Item from '../components/Item';
 

@@ -86,31 +86,31 @@ function App() {
         </Router>
       </div>
     ) : (
-      <div id="overlayWrapper">
-        <Modal/>
-        <div id="overlayView">
-          <Router>
-            <Nav />
-            <Switch>
-              {/* <Route exact={true} path="/">
-                <PageMain/>
-              </Route> */}
-              <Route path="/user/info">
-                <PageMyPage/>
-              </Route>
-              <Route path="/place/upload">
-                <PagePlaceUpload/>
-              </Route>
-              <Route path="/list/detail">
-                <PageListDetail/>
-              </Route>
-              <Route path="/">
-                <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} />
-              </Route>
-            </Switch>
-          </Router>
+      <Router>
+        <div id="overlayWrapper">
+          <Modal/>
+          <div id="overlayView">
+              <Nav/>
+              <Switch>
+                {/* <Route exact={true} path="/">
+                  <PageMain/>
+                </Route> */}
+                <Route path="/user/info">
+                  <PageMyPage/>
+                </Route>
+                <Route path="/place/upload">
+                  <PagePlaceUpload/>
+                </Route>
+                <Route path="/list/detail">
+                  <PageListDetail/>
+                </Route>
+                <Route path="/">
+                  <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} />
+                </Route>
+              </Switch>
+          </div>
         </div>
-      </div>
+      </Router>
     )
   );
 }
