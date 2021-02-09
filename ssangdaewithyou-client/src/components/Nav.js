@@ -7,7 +7,7 @@ function Nav() {
     <div id="nav">
       <div id="navLeft"></div>
       <div id="navCenter">
-        <img src="../img/ssangDaeLogo.jpeg" id="logo" alt="profile"/>
+        <Link to="/"><img src="../img/ssangDaeLogo.jpeg" id="logo" alt="profile"/></Link>
       </div>
       <div id="navRight">
         <div id="navMap" className="navContents">

@@ -10,6 +10,7 @@ import PageMain from './pages/PageMain';
 import PageMyPage from './pages/PageMyPage';
 import PagePlaceUpload from './pages/PagePlaceUpload';
 import PageListDetail from './pages/PageListDetail';
+import PageEasterEgg from './pages/PageEasterEgg';
 import './App.css';
 // ! for fakeData
 import { fakeData } from './fakeData/fakeData';
@@ -90,6 +91,9 @@ function App() {
             <Route path="/list/detail">
               <PageListDetail existingPlaceInfo={existingPlaceInfo} />
             </Route>
+            <Route path="/easterEgg">
+              <PageEasterEgg />
+            </Route>
             <Route path="/">
               <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />
             </Route>
@@ -114,6 +118,9 @@ function App() {
                 </Route>
                 <Route path="/list/detail">
                   <PageListDetail existingPlaceInfo={existingPlaceInfo} />
+                </Route>
+                <Route path="/easterEgg">
+                  <PageEasterEgg />
                 </Route>
                 <Route path="/">
                   <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />

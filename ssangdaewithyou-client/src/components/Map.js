@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import Geolocation from './Geolocation';
-
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps'
+import Geolocation from './Geolocation';
+import EasterEgg from './EasterEgg'
 
 function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace, handleMapClick }) {
   const history = useHistory()
@@ -18,8 +18,8 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
           id='maps-examples-map-simple'
           style={{
             width: '100%',
-            // ! 이것을 100%로 하면 지도크기가 커짐
-            height: '400px',
+            // !
+            height: '100%',
           }}
           center={mapCenter} // ! '현재 위치로 가기 기능'을 버튼 추가?
           defaultZoom={12} // ! 지도 초기 확대 배율
@@ -35,6 +35,7 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
             animation={1}
             onClick={() => {alert('Take over the zone!');}} // ! UI/UX 고려해야 함
           />
+          <EasterEgg />
           {/* // ! fakeData */}
           {smokePlaces.map((smokePlace) =>
             <Marker

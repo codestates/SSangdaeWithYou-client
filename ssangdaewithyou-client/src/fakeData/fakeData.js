@@ -34,14 +34,23 @@ export const fakeData =
       "id": 1,
       "placeId": 1,
       "userId": 1,
-      "message": 1,
+      "message": '훗',
+      "nickname": "김철수"
     },
     {
-      "id": 1,
+      "id": 5,
       "placeId": 1,
-      "userId": 1,
-      "message": 1,
-    } 
+      "userId": 2,
+      "message": '세상에!',
+      "nickname": "이영희"
+    },
+    {
+      "id": 9,
+      "placeId": 1,
+      "userId": 3,
+      "message": '편하게 한 대 태우고 갑니다^^^',
+      "nickname": "정민수"
+    },
   ],
   "likeOrDislike": [
     {
