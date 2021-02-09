@@ -23,10 +23,20 @@ function App() {
   // ! existingPlaceInfo 는 이미 DB에 저장된 장소에 관련한 onClick 실행 시 관련 정보를 다루는 상태
   // ! Map 이던 List 이던 smokePlaces 의 데이타라는 점을 이용
   const [existingPlaceInfo, setExistingPlaceInfo] = useState(null)
+  // ! UI/UX 위해 center, clickedPlace 를 map에서 옮겨옴(clickedPlace 는 수정할 수도 있다)
+  const [mapCenter, setMapCenter] = useState({ lat: 37.510744, lng: 126.9818086 }); // ! 대략 서울 중심
+  const [mapClickedPlace, setMapClickedPlace] = useState({ lat: 0, lng: 0 })
+  
+  // ! 지도상의 위치를 클릭했을 때,
+  // ! 1. 해당 위치를 지도의 중앙에 위치시키고
+  // ! 2. 해당 위치에 마커(통통 튀는 animation 적용됨)를 놓는다
+  const handleMapClick = (latitude, longitude) => {
+    setMapCenter({ lat: latitude, lng: longitude });
+    setMapClickedPlace({ lat: latitude, lng: longitude });
+  }
 
-  // ! List, Map 둘 다 구현해야 함
-  // ! List
-  // ! Map
+  // ! List, Map 의 특정 위치(이미 DB에 등록된 위치 중 하나)를 클릭했을 때,
+  // ! 해당 위치의 정보를 담은 /list/detail로 넘어간다
   const handleExistingPlaceInfo = (smokePlaceId) => {
     console.log(smokePlaceId)
     setExistingPlaceInfo(smokePlaceId)
@@ -80,7 +90,7 @@ function App() {
               <PageListDetail/>
             </Route>
             <Route path="/">
-              <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} />
+              <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />
             </Route>
           </Switch>
         </Router>
@@ -105,7 +115,7 @@ function App() {
                   <PageListDetail/>
                 </Route>
                 <Route path="/">
-                  <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} />
+                  <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />
                 </Route>
               </Switch>
           </div>
