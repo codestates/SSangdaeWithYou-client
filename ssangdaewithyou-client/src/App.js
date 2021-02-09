@@ -10,6 +10,7 @@ import PageMain from './pages/PageMain';
 import PageMyPage from './pages/PageMyPage';
 import PagePlaceUpload from './pages/PagePlaceUpload';
 import PageListDetail from './pages/PageListDetail';
+import PageEasterEgg from './pages/PageEasterEgg';
 import './App.css';
 // ! for fakeData
 import { fakeData } from './fakeData/fakeData';
@@ -26,7 +27,9 @@ function App() {
   // ! UI/UX 위해 center, clickedPlace 를 map에서 옮겨옴(clickedPlace 는 수정할 수도 있다)
   const [mapCenter, setMapCenter] = useState({ lat: 37.510744, lng: 126.9818086 }); // ! 대략 서울 중심
   const [mapClickedPlace, setMapClickedPlace] = useState({ lat: 0, lng: 0 })
-  
+  // ! DB랑 연결했을 때는 DB에서 쏴주는 정보를 userInfo에 주면 되므로, 일단은 fakeData 하나를 임의로 주겠다
+  const [userInfo, SetUserInfo] = useState(fakeData.users[2])
+
   // ! 지도상의 위치를 클릭했을 때,
   // ! 1. 해당 위치를 지도의 중앙에 위치시키고
   // ! 2. 해당 위치에 마커(통통 튀는 animation 적용됨)를 놓는다
@@ -80,13 +83,16 @@ function App() {
               <PageMain/>
             </Route> */}
             <Route path="/user/info">
-              <PageMyPage/>
+              <PageMyPage userInfo={userInfo} />
             </Route>
             <Route path="/place/upload">
               <PagePlaceUpload/>
             </Route>
             <Route path="/list/detail">
               <PageListDetail existingPlaceInfo={existingPlaceInfo} />
+            </Route>
+            <Route path="/easterEgg">
+              <PageEasterEgg />
             </Route>
             <Route path="/">
               <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />
@@ -105,13 +111,16 @@ function App() {
                   <PageMain/>
                 </Route> */}
                 <Route path="/user/info">
-                  <PageMyPage/>
+                  <PageMyPage userInfo={userInfo} />
                 </Route>
                 <Route path="/place/upload">
                   <PagePlaceUpload/>
                 </Route>
                 <Route path="/list/detail">
                   <PageListDetail existingPlaceInfo={existingPlaceInfo} />
+                </Route>
+                <Route path="/easterEgg">
+                  <PageEasterEgg />
                 </Route>
                 <Route path="/">
                   <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />

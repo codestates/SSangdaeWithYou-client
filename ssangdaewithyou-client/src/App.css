@@ -845,3 +845,14 @@ html,body {
     max-width: 800px;
   }
 }
+
+/* ----------------- 인수님이 나중에 이것 좀 손봐주세요! ------------------*/ 
+.easterEgg {
+  display: flex;
+  justify-content: center;
+}
+
+.portrait {
+  width: 200px;
+  height: 200px;
+}

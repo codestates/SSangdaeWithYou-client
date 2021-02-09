@@ -13,7 +13,7 @@ function ListElement({ smokePlace, handleExistingPlaceInfo }) {
         // alert(smokePlace.id)
       }}>
         <div className="listPlaceName">{smokePlace.placeName}</div>
-        <div className="listPlaceUser">{smokePlace.userId}</div>
+        <div className="listPlaceUser">{smokePlace.nickname}</div>
       </div>
   );
 }
