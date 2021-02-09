@@ -20,7 +20,7 @@ function PageListDetail({ existingPlaceInfo }) {
   return (
     <div>
       {!existingPlaceInfo ? (
-        <div>지도로 돌아가랏!</div>
+        <div>지도를 클릭해 주세요! 더 나은 UI/UX로 탈바꿈하겠습니다. 감사합니다.</div>
       ) : (
         <ListDetail existingPlaceInfo={existingPlaceInfo} chosenListDetail={chosenListDetail}/>
       )}

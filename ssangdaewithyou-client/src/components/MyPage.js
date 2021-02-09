@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MyPage({ userInfo }) {
+function MyPage({ userInfo, isKakao }) {
 
   return (
     <div id="myPage">
@@ -25,11 +25,15 @@ function MyPage({ userInfo }) {
         </div>
         <div className="userInput">{userInfo.nickname}</div>
       </div>
-      <div id="forCenter">
-        <div id="editPassword">
-          <div className="passwordText">Change password</div>
+      {isKakao ? (
+        <div>{console.log(isKakao)}</div>
+      ) : (
+        <div id="forCenter">
+          <div id="editPassword">
+            <div className="passwordText">Change password</div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
