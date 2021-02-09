@@ -1,43 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function ListElement({ smokePlace, handleExistingPlaceInfo }) {
+  const history = useHistory()
 
   return (
       // ! UX 위해 CSS 추가 className="listEl" 에 cursor: pointer;
       // ! <div id="listEl"> 를 <div className="listEl"> 으로 변경
-      // <Link to='/list/detail'>
-      //   <div className="listEl">
-      //     <div className="listPlaceName">{smokePlace.placeName}</div>
-      //     <div className="listPlaceUser">{smokePlace.userId}</div>
-      //   </div>
-      // </Link>
-      // !
       <div className="listEl" onClick={() => {
-        handleExistingPlaceInfo(smokePlace.id)
-        alert(smokePlace.id)
+        handleExistingPlaceInfo(smokePlace)
+        history.push("/list/detail")
+        // alert(smokePlace.id)
       }}>
         <div className="listPlaceName">{smokePlace.placeName}</div>
         <div className="listPlaceUser">{smokePlace.userId}</div>
       </div>
   );
 }
-
-// ! R1
-{/* <Route
-path='/'
-render={() => {
-  if (isLogin) {
-    return <Redirect to='/mypage' />;
-  }
-  return <Redirect to='/login' />;
-}}
-/> */}
-
-// ! R2
-// .then(res => {
-//   // ! 나이스
-//   this.props.history.push("/");
 
 export default ListElement;
 

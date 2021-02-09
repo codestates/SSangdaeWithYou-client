@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route
 } from "react-router-dom";
 import Nav from './components/Nav';
 import Modal from './components/Modal';
@@ -37,13 +37,12 @@ function App() {
 
   // ! List, Map 의 특정 위치(이미 DB에 등록된 위치 중 하나)를 클릭했을 때,
   // ! 해당 위치의 정보를 담은 /list/detail로 넘어간다
-  const handleExistingPlaceInfo = (smokePlaceId) => {
-    console.log(smokePlaceId)
-    setExistingPlaceInfo(smokePlaceId)
+  const handleExistingPlaceInfo = (smokePlace) => {
+    setExistingPlaceInfo(smokePlace)
   }
 
   useEffect(() => {
-    console.log(123)
+    console.log('existingPlaceInfo:', existingPlaceInfo)
   }, [existingPlaceInfo])
 
   // ! 서버와의 연계(대충 흐름만)------------------------------------------
@@ -87,7 +86,7 @@ function App() {
               <PagePlaceUpload/>
             </Route>
             <Route path="/list/detail">
-              <PageListDetail/>
+              <PageListDetail existingPlaceInfo={existingPlaceInfo} />
             </Route>
             <Route path="/">
               <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />
@@ -112,7 +111,7 @@ function App() {
                   <PagePlaceUpload/>
                 </Route>
                 <Route path="/list/detail">
-                  <PageListDetail/>
+                  <PageListDetail existingPlaceInfo={existingPlaceInfo} />
                 </Route>
                 <Route path="/">
                   <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />
