@@ -1,10 +1,10 @@
 import React from 'react';
 import PlaceUpload from '../components/PlaceUpload';
 
-function PagePlaceUpload() {
+function PagePlaceUpload({ userInfo, mapClickedPlace }) {
   
   return (
-    <PlaceUpload/>
+    <PlaceUpload userInfo={userInfo} mapClickedPlace={mapClickedPlace} />
   )
 }
 
