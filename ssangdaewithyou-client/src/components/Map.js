@@ -1,11 +1,12 @@
-import React, { useState, useEffect }from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Geolocation from './Geolocation';
 
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps'
-import { Link } from 'react-router-dom';
 
 function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace, handleMapClick }) {
-
+  const history = useHistory()
+  
   return (
     <div id="map">
       <RenderAfterNavermapsLoaded
@@ -13,7 +14,6 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
         error={<p>Maps Load Error</p>}
         loading={<p>Maps Loading...</p>}
       >
-        {/* <button onClick={centerChangeToSomewhere}>Pan To Somewhere</button> */}
         <NaverMap 
           id='maps-examples-map-simple'
           style={{
@@ -33,17 +33,17 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
           <Marker
             position={mapClickedPlace}
             animation={1}
-            onClick={() => {alert('Take over the zone!');}} // ! /list/detail로 이동할 수 있게 구현
+            onClick={() => {alert('Take over the zone!');}} // ! UI/UX 고려해야 함
           />
           {/* // ! fakeData */}
-          {smokePlaces.map((ele) =>
+          {smokePlaces.map((smokePlace) =>
             <Marker
-              key={ele.id}
-              position={{ lat: ele.latitude, lng: ele.longitude}}
+              key={smokePlace.id}
+              position={{ lat: smokePlace.latitude, lng: smokePlace.longitude}}
               onClick={() => {
-                handleExistingPlaceInfo(ele.id);
-                alert(ele.id)
-              }} // ! /list/detail로 이동할 수 있게 구현
+                handleExistingPlaceInfo(smokePlace);
+                history.push("/list/detail")
+              }}
             />
           )}
         </NaverMap>
