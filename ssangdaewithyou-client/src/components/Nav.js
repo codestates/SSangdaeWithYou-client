@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
-function Nav() {
+function Nav({ handleIsLogin, isLogin, handleIsGuest }) {
+  const history = useHistory()
 
   return (
     <div id="nav">
@@ -14,9 +15,28 @@ function Nav() {
           <Link to="/"><img src="../img/map.jpg" id="mapImg" alt="profile"/></Link>
         </div>
         <div id="navMypage" className="navContents">
-        <Link to="/user/info"><img src="../img/mypage.jpg" id="mypageImg" alt="profile"/></Link>
+          <img src="../img/mypage.jpg" id="mypageImg" alt="profile" onClick={() => {
+            if (isLogin) {
+              history.push("/user/info")
+            } else {
+              alert('로그인을 해주세요.')
+            }
+          }}/>
         </div>
-        <div className="navContents" >Login /Logout</div>
+        <div className="navContents">
+          {isLogin? (
+            <div id="navLog" onClick={() => {
+              alert('로그아웃을 하셨습니다.')
+              handleIsLogin()
+            }}>Logout</div>
+          ) : (
+            <div id="navLog" onClick={() => {
+              handleIsGuest()
+              history.push("/")
+            }}>Login</div>
+          )}
+
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,10 @@
 import React from 'react';
 
 function MyPage({ userInfo, isKakao }) {
+  const handlePasswordChange = () => {
+    // !  비밀번호 변경 관련 안된 거 많음
+    alert('비밀번호를 변경하셨습니다.')
+  }
 
   return (
     <div id="myPage">
@@ -29,7 +33,7 @@ function MyPage({ userInfo, isKakao }) {
         <div>{console.log(isKakao)}</div>
       ) : (
         <div id="forCenter">
-          <div id="editPassword">
+          <div id="editPassword" onClick={handlePasswordChange}>
             <div className="passwordText">Change password</div>
           </div>
         </div>

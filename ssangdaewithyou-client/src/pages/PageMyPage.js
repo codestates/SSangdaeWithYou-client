@@ -4,7 +4,7 @@ import MyPage from '../components/MyPage';
 function PageMyPage({ userInfo, isKakao }) {
   
   return (
-    <MyPage userInfo={userInfo} isKakao={isKakao}/>
+    <MyPage userInfo={userInfo} isKakao={isKakao} />
   )
 }
 
