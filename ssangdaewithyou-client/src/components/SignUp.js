@@ -3,8 +3,8 @@ import React from 'react';
 function SignUp() {
   return (
     <div id="modalFrame">
-      <div className="modalLogo">
-        <img src="../img/ModalLogo.jpg" id="ModallogoImg" />
+      <div className="modalLogo forSignupLogo">
+        <img src="../img/ModalLogo.jpg" alt="profile" className="modallogoImg" />
         <div className="modalLogoText1">쌍대는 너랑</div>
         <div className="modalLogoText2">(돗대는 나만)</div>
       </div>

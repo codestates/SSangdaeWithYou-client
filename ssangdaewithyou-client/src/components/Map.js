@@ -18,7 +18,7 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
           id='maps-examples-map-simple'
           style={{
             width: '100%',
-            // !
+            // ! 이것을 100%로 하면 지도크기가 커짐
             height: '400px',
           }}
           center={mapCenter} // ! '현재 위치로 가기 기능'을 버튼 추가?

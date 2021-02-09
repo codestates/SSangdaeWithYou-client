@@ -5,7 +5,7 @@ import SignUp from '../components/SignUp';
 import SignIn from '../components/SignIn';
 
 function Modal() {
-  const [isSignup, setIssignup] = useState(false);
+  const [isSignup, setIssignup] = useState(true);
   return (
     <div>
       {isSignup ? (
