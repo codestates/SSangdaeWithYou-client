@@ -18,7 +18,7 @@ function List({ smokePlaces, handleExistingPlaceInfo, isLogin }) {
           Take over the zone
         </div>
       </div>
-      {smokePlaces.map((smokePlace) => <ListElement key={smokePlace.id} smokePlace={smokePlace} handleExistingPlaceInfo={handleExistingPlaceInfo} />)}
+      {smokePlaces.map((smokePlace) => <ListElement key={smokePlace.id} smokePlace={smokePlace} handleExistingPlaceInfo={handleExistingPlaceInfo} isLogin={isLogin}/>)}
       {/* {smokePlaces.map((ele, idx) => <ListElement key={idx}/>)} */}
     </div>
   );

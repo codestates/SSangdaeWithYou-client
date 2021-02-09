@@ -6,7 +6,7 @@ function PageMain({ smokePlaces, handleExistingPlaceInfo, mapCenter, mapClickedP
   
   return (
     <div id="mapAndList">
-      <Map smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />
+      <Map smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} isLogin={isLogin} />
       <List smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} isLogin={isLogin} />
     </div>
   )

@@ -4,7 +4,7 @@ import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps'
 import Geolocation from './Geolocation';
 import EasterEgg from './EasterEgg'
 
-function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace, handleMapClick }) {
+function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace, handleMapClick, isLogin }) {
   const history = useHistory()
   
   return (
@@ -33,7 +33,13 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
           <Marker
             position={mapClickedPlace}
             animation={1}
-            onClick={() => {alert('Take over the zone!');}} // ! UI/UX 고려해야 함
+            onClick={() => {
+              if (isLogin) {
+                alert('Take over the zone 을 클릭하여 해당 위치를 정복해 보세요!')
+              } else {
+                alert('회원가입을 하면 해당 위치를 정복할 수 있습니다!')
+              }
+            }} // ! UI/UX 고려해야 함
           />
           <EasterEgg />
           {/* // ! fakeData */}
@@ -42,8 +48,12 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
               key={smokePlace.id}
               position={{ lat: smokePlace.latitude, lng: smokePlace.longitude}}
               onClick={() => {
-                handleExistingPlaceInfo(smokePlace);
-                history.push("/list/detail")
+                if (isLogin) {
+                  handleExistingPlaceInfo(smokePlace);
+                  history.push("/list/detail")                  
+                } else {
+                  alert('로그인을 해주세요.')
+                }
               }}
             />
           )}
