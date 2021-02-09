@@ -1,29 +1,39 @@
 import React from "react";
 import { geolocated } from "react-geolocated";
 
-class Demo extends React.Component {
+class UserLocation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      didUpdateCount: 0
+    }
+  }
+
+  componentDidUpdate() {
+    if (!this.props.coords) {
+      return;
+    } if (this.state.didUpdateCount === 0) {
+      this.pinToUserLocation(this.props.coords.latitude, this.props.coords.longitude)
+      this.setState({
+        didUpdateCount: 1
+      })
+    }
+  }
+
+  pinToUserLocation = (latitude, longitude) => {
+    this.props.handleMapClick(latitude, longitude)
+  }
 
   render() {
-      return !this.props.isGeolocationAvailable ? (
-          <div>Your browser does not support Geolocation</div>
-      ) : !this.props.isGeolocationEnabled ? (
-          <div>Geolocation is not enabled</div>
-      ) : this.props.coords ? (
-          <table>
-              <tbody>
-                  <tr>
-                      <td>latitude</td>
-                      <td>{this.props.coords.latitude}</td>
-                  </tr>
-                  <tr>
-                      <td>longitude</td>
-                      <td>{this.props.coords.longitude}</td>
-                  </tr>
-              </tbody>
-          </table>
-      ) : (
-          <div>Getting the location data&hellip; </div>
-      );
+    return !this.props.isGeolocationAvailable ? (
+        <div>Your browser does not support Geolocation</div>
+    ) : !this.props.isGeolocationEnabled ? (
+        <div>Geolocation is not enabled</div>
+    ) : this.props.coords ? (
+        <div></div>
+    ) : (
+        <div>Getting the location data&hellip; </div>
+    );
   }
 }
 
@@ -32,4 +42,27 @@ export default geolocated({
         enableHighAccuracy: false,
     },
     userDecisionTimeout: 5000,
-})(Demo);
+})(UserLocation);
+
+// render() {
+//   return !this.props.isGeolocationAvailable ? (
+//       <div>Your browser does not support Geolocation</div>
+//   ) : !this.props.isGeolocationEnabled ? (
+//       <div>Geolocation is not enabled</div>
+//   ) : this.props.coords ? (
+//       <table>
+//           <tbody>
+//               <tr>
+//                   <td>latitude</td>
+//                   <td>{this.props.coords.latitude}</td>
+//               </tr>
+//               <tr>
+//                   <td>longitude</td>
+//                   <td>{this.props.coords.longitude}</td>
+//               </tr>
+//           </tbody>
+//       </table>
+//   ) : (
+//       <div>Getting the location data&hellip; </div>
+//   );
+// }
