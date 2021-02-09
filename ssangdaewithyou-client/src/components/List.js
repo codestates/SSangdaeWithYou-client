@@ -1,68 +1,15 @@
 import React from 'react';
+import ListElement from './ListElement';
 
-function List() {
+function List({ smokePlaces, handleExistingPlaceInfo }) {
 
   return (
     <div id="list">
       <div id="enroll">
         <div id="enrollText">Take over the zone</div>
       </div>
-      <div id="listEl">
-        <div className="listPlaceName">장소명</div>
-        <div className="listPlaceUser">정복자</div>
-        <div className="countLikeOrDislike">
-          <div className="listLike">
-            <img src="../img/like.jpg" className="countImg" />
-            <div className="count">7</div>
-          </div>
-          <div className="dislistLike">
-            <img src="../img/dislike.jpg" className="countImg" />
-            <div className="count">2</div>
-          </div>
-        </div>
-      </div>
-      <div id="listEl">
-        <div className="listPlaceName">장소명</div>
-        <div className="listPlaceUser">정복자</div>
-        <div className="countLikeOrDislike">
-          <div className="listLike">
-            <img src="../img/like.jpg" className="countImg" />
-            <div className="count">7</div>
-          </div>
-          <div className="dislistLike">
-            <img src="../img/dislike.jpg" className="countImg" />
-            <div className="count">2</div>
-          </div>
-        </div>
-      </div>
-      <div id="listEl">
-        <div className="listPlaceName">장소명</div>
-        <div className="listPlaceUser">정복자</div>
-        <div className="countLikeOrDislike">
-          <div className="listLike">
-            <img src="../img/like.jpg" className="countImg" />
-            <div className="count">7</div>
-          </div>
-          <div className="dislistLike">
-            <img src="../img/dislike.jpg" className="countImg" />
-            <div className="count">2</div>
-          </div>
-        </div>
-      </div>
-      <div id="listEl">
-        <div className="listPlaceName">장소명</div>
-        <div className="listPlaceUser">정복자</div>
-        <div className="countLikeOrDislike">
-          <div className="listLike">
-            <img src="../img/like.jpg" className="countImg" />
-            <div className="count">7</div>
-          </div>
-          <div className="dislistLike">
-            <img src="../img/dislike.jpg" className="countImg" />
-            <div className="count">2</div>
-          </div>
-        </div>
-      </div>
+      {smokePlaces.map((ele) => <ListElement key={ele.id} smokePlace={ele} handleExistingPlaceInfo={handleExistingPlaceInfo} />)}
+      {/* {smokePlaces.map((ele, idx) => <ListElement key={idx}/>)} */}
     </div>
   );
 }

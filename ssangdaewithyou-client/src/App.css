@@ -321,13 +321,14 @@ html,body {
   margin-left: 2%;
 } */
 
-#listEl {
+.listEl {
   display: flex;
   margin: 5% 0 0 0;
   border-bottom: 2px solid #8e8e8e;
   padding-bottom: 5%;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 }
 
 .listPlaceName {
