@@ -19,15 +19,7 @@ function ListDetail({ existingPlaceInfo }) {
             <div id="placeEl">{existingPlaceInfo.comment}</div>
           </div>
         </div>
-        <div id="likeOrDislike">
-          <div id="like">
-            <img src="../img/like.jpg" className="likeOrDislikeImg" />
-            <div id="likeOrDislikeText">추천해요</div>
-          </div>
-          <div id="disLike">
-            <img src="../img/dislike.jpg" className="likeOrDislikeImg" />
-            <div id="likeOrDislikeText">비추해요</div>
-          </div>
+        
           <div id="likeOrDislike">
             <div className="forLikeOrDislikeFrame">
               <div className="count">7</div>
@@ -86,7 +78,6 @@ function ListDetail({ existingPlaceInfo }) {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

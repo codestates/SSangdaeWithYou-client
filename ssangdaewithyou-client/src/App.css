@@ -653,6 +653,10 @@ html,body {
 } */
 
 /* ----------------- ListDetail ------------------*/ 
+.forListDeFrame{
+  display: none;
+}
+
 #listDetail {
   display: flex;
   /* border: 1px solid blue; */
@@ -708,6 +712,7 @@ html,body {
   padding: 5px;
   height: 10%;
   /* max-width: 850px; */
+  /* flex-direction: column; */
   justify-content: space-around;;
 }
 
