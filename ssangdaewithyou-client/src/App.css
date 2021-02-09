@@ -71,7 +71,7 @@ html,body {
   justify-content: center;
 }
 
-#ModallogoImg {
+.modallogoImg {
   height:60%;
   width: auto;
 }
@@ -167,6 +167,31 @@ html,body {
   }
 }
 
+@media screen and (max-height: 665px) {
+  /* .modalLogo {
+    display: flex;
+    justify-content: center;
+  } */
+  .modallogoImg {
+    margin-left: 25%;
+    height: 60%;
+    width: 50%;
+  }
+
+  .modalLogoText1 {
+    display: none;
+  }
+  
+  .modalLogoText2 {
+    display: none;
+  }
+
+  .forSignupLogo {
+    margin-top: -30px;
+    height: 100px;
+  }
+}
+
 .SignUp {
   width: 80%;
   height: 50px;
@@ -187,6 +212,48 @@ html,body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media screen and (max-height: 569px) {
+  .modalLogo {
+    /* border: 1px solid rgb(0, 0, 0); */
+    height: 100px;
+  }
+
+  .modallogoImg {
+    margin-left: 25%;
+    height: 70%;
+    width: 50%;
+  }
+
+  .modalUserId {
+    margin-top: 0;
+  }
+
+  .modalUserPassWord {
+    margin-bottom: 0;
+  }
+
+  .modalSignUp {
+    margin-top: 2px;
+  }
+  
+  .modalNonMember {
+    margin: 10px 0;
+  }
+
+  .forSignupLogo {
+    margin-bottom: -10px;
+  }
+
+  .SignUpButton {
+    height: 30px;
+    font-size: 20px;
+  }
+
+  .SignUp {
+    height: 35px;
+  }
 }
 /* ----------------- nav ------------------*/ 
 #nav {
@@ -396,12 +463,6 @@ html,body {
   justify-content: center;
 }
 
-.count {
-  font-size: 250%;
-  margin: 0 0 0 20%;
-  max-height: 100%;
-  width: auto;
-}
 
 @media screen and (max-width: 1000px) {
   #mapAndList {
@@ -435,12 +496,6 @@ html,body {
   width: 100%;
   flex-direction: column;
   justify-content: center;
-}
-
-@media screen and (max-width: 500px) {  
-  #myPage {
-    height: 400px;
-  }
 }
 
 #userName {
@@ -493,6 +548,23 @@ html,body {
   justify-content: space-around;;
 }
 
+@media screen and (max-width: 500px) {  
+  #myPage {
+    height: 400px;
+  }
+
+  #userName {
+    height: 93px;
+  }
+
+  #email {
+    height: 93px;
+  }
+
+  #nickName {
+    height: 93px;
+  }
+}
 /* ----------------- use in anything for center------------------*/ 
 #forCenter {
   display: flex;
@@ -587,7 +659,6 @@ html,body {
   padding: 5px;
   height: 90%;
   width: 100%;
-  margin: 0 0 5px 0;
   justify-content: center;
   flex-direction: column;
 }
@@ -597,8 +668,7 @@ html,body {
   /* border: 1px solid rgb(29, 183, 239); */
   padding: 5px;
   height: 20%;
-  width: 100%;
-  margin: 0 0 5px 0;
+  margin: 0 0 5px;
   justify-content: center;
   flex-direction: column;
 }
@@ -610,8 +680,13 @@ html,body {
   align-items: center;
 }
 
+.fstPlaceEl {
+  font-size: 23px;
+}
+
 #placeEl {
   margin: 0 0 0 3%;
+  font-size: 25px;
 }
 
 #detailPlaceDetail {
@@ -632,13 +707,23 @@ html,body {
   display: flex;
   padding: 5px;
   height: 10%;
-  width: 100%;
+  /* max-width: 850px; */
   justify-content: space-around;;
+}
+
+.forLikeOrDislikeFrame {
+  width: 100%;
+  
+}
+
+.count {
+  font-size: 40px;
+  width: auto;
+  text-align: center;
 }
 
 #like {
   display: flex;
-  /* border: 1px solid rgb(0, 0, 0); */
   flex: 0.1 1 auto;
   justify-content: center;
 }
@@ -666,7 +751,6 @@ html,body {
   /* border: 1px solid rgb(29, 183, 239); */
   padding: 5px;
   height: 60%;
-  width: 100%;
   margin: 0 0 5px 0;
   justify-content: flex-start;
   flex-direction: column;
@@ -674,7 +758,7 @@ html,body {
 
 #userMessage {
   display: flex;
-  /* border: 1px solid rgb(0, 0, 0); */
+  border-top: 3px solid #8e8e8e;
   flex-direction: column;
   margin: 3% 1% 1% 1%;
   height: 40%;
@@ -683,10 +767,11 @@ html,body {
 #userId {
   flex: 0.5 1 auto;
   /* border: 1px solid rgb(0, 0, 0); */
-  margin: 1%;
+  margin: 4%;
   width: 40%;
   text-align: center;
   font-weight: bold;
+  font-size: 20px;
 }
 
 #userText {
@@ -750,3 +835,13 @@ html,body {
   font-size: 20px;
   text-align: center;
 } 
+
+@media screen and (min-width: 1000px) {  
+  .forListDeFrame{
+    display: flex;
+    justify-content: center;
+  }
+  #listDetail {
+    max-width: 800px;
+  }
+}

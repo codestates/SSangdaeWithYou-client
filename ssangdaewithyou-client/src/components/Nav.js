@@ -7,14 +7,14 @@ function Nav() {
     <div id="nav">
       <div id="navLeft"></div>
       <div id="navCenter">
-        <img src="../img/ssangDaeLogo.jpeg" id="logo" />
+        <img src="../img/ssangDaeLogo.jpeg" id="logo" alt="profile"/>
       </div>
       <div id="navRight">
         <div id="navMap" className="navContents">
-          <Link to="/"><img src="../img/map.jpg" id="mapImg" /></Link>
+          <Link to="/"><img src="../img/map.jpg" id="mapImg" alt="profile"/></Link>
         </div>
         <div id="navMypage" className="navContents">
-        <Link to="/user/info"><img src="../img/mypage.jpg" id="mypageImg" /></Link>
+        <Link to="/user/info"><img src="../img/mypage.jpg" id="mypageImg" alt="profile"/></Link>
         </div>
         <div className="navContents" >Login /Logout</div>
       </div>
