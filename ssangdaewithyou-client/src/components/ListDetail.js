@@ -1,21 +1,21 @@
 import React from 'react';
 
-function ListDetail() {
+function ListDetail({ existingPlaceInfo }) {
 
   return (
     <div id="listDetail">
       <div id="detail">
         <div id="detailPlaceName"> 
           <div>장소명 :</div>
-          <div id="placeEl">placeName</div>
+          <div id="placeEl">{existingPlaceInfo.placeName}</div>
         </div>
         <div id="detailUserId">
           <div>정복자 : </div>
-          <div id="placeEl">userId</div>
+          <div id="placeEl">{existingPlaceInfo.userId}</div>
         </div>
         <div id="detailPlaceDetail">
           <div>요약 : </div>
-          <div id="placeEl">저는 이곳이 너무 좋아요 흐랄랄랄라 내용을 더 길게 써 보아요 흐랄랄랄라</div>
+          <div id="placeEl">{existingPlaceInfo.comment}</div>
         </div>
       </div>
       <div id="likeOrDislike">

@@ -8,7 +8,7 @@ function List({ smokePlaces, handleExistingPlaceInfo }) {
       <div id="enroll">
         <div id="enrollText">Take over the zone</div>
       </div>
-      {smokePlaces.map((ele) => <ListElement key={ele.id} smokePlace={ele} handleExistingPlaceInfo={handleExistingPlaceInfo} />)}
+      {smokePlaces.map((smokePlace) => <ListElement key={smokePlace.id} smokePlace={smokePlace} handleExistingPlaceInfo={handleExistingPlaceInfo} />)}
       {/* {smokePlaces.map((ele, idx) => <ListElement key={idx}/>)} */}
     </div>
   );
