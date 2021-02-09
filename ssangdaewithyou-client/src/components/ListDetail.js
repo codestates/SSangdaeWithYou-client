@@ -51,7 +51,7 @@ function ListDetail({ existingPlaceInfo }) {
               <div className="guestId">대장아재</div>
               <div className="guestDate">2021-02-04 21:50:20</div>
             </div>
-            <div className="guestText">꺄르르르르르르 우리 아재들 담배 맛이쪄요?</div>
+            <div className="guestText">꺄르르르르르 우리 아재들 담배 맛이쪄요?</div>
           </div>
           <div id="questList">
             <div id="idOrDate">

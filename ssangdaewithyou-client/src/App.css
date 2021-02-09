@@ -665,7 +665,6 @@ html,body {
 
 #detail {
   display: flex;
-  /* border: 1px solid rgb(29, 183, 239); */
   padding: 5px;
   height: 20%;
   margin: 0 0 5px;
