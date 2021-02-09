@@ -194,7 +194,7 @@ html,body {
 
 .SignUp {
   width: 80%;
-  height: 50px;
+  height: 30px;
   margin: 5px 0;
   font-size: 20px;
   text-align: center;
@@ -202,7 +202,7 @@ html,body {
 
 .SignUpButton {
   width: 200px;
-  height: 50px;
+  height: 40px;
   margin-top: 5px;
   font-size: 30px;
   text-align: center;
@@ -214,7 +214,7 @@ html,body {
   justify-content: center;
 }
 
-@media screen and (max-height: 569px) {
+@media screen and (max-height: 637px) {
   .modalLogo {
     /* border: 1px solid rgb(0, 0, 0); */
     height: 100px;
