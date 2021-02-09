@@ -78,7 +78,7 @@ export const fakeData =
       "id": 3,
       "username": "orionchocopie",
       "password": "asdf",
-      "nickname": "이영희",
+      "nickname": "정민수",
       "email": "zung@asdf.com"
     },
   ]

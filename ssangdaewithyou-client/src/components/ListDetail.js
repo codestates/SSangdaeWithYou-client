@@ -11,12 +11,12 @@ function ListDetail({ existingPlaceInfo }) {
             <div id="placeEl">{existingPlaceInfo.placeName}</div>
           </div>
           <div id="detailUserId">
-            <div className="fstPlaceEl">정복자 : </div>
-            <div id="placeEl">{existingPlaceInfo.userId}</div>
+            <div className="fstPlaceEl">정복자 :</div>
+            <div id="placeEl">{existingPlaceInfo.nickname}</div>
           </div>
           <div id="detailPlaceDetail">
-            <div className="fstPlaceEl">정복자의 한마디 : </div>
-            <div id="placeEl">{existingPlaceInfo.comment}</div>
+            <div className="fstPlaceEl">(정복자의 한말씀)</div>
+            <div id="placeEl">"{existingPlaceInfo.comment}"</div>
           </div>
         </div>
         <div id="likeOrDislike">

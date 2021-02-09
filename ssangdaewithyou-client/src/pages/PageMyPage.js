@@ -1,10 +1,10 @@
 import React from 'react';
 import MyPage from '../components/MyPage';
 
-function PageMyPage() {
+function PageMyPage({ userInfo }) {
   
   return (
-    <MyPage/>
+    <MyPage userInfo={userInfo} />
   )
 }
 
