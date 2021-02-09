@@ -4,11 +4,12 @@ import List from '../components/List';
 // ! reference
 // import Item from '../components/Item';
 
-function PageMain() {
+function PageMain({ smokePlaces, handleExistingPlaceInfo }) {
+  
   return (
     <div id="mapAndList">
-        <Map/>
-        <List/>
+      <Map smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} />
+      <List smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} />
     </div>
   )
 }

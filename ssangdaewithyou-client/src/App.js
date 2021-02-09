@@ -1,66 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-
-import axios from 'axios'
-
-// ! ./components
 import Nav from './components/Nav';
 import Modal from './components/Modal';
-
-// ! ./pages
 import PageMain from './pages/PageMain';
 import PageMyPage from './pages/PageMyPage';
 import PagePlaceUpload from './pages/PagePlaceUpload';
 import PageListDetail from './pages/PageListDetail';
-
-// ! 호오...
 import './App.css';
-
 // ! for fakeData
 import { fakeData } from './fakeData/fakeData';
-
+import axios from 'axios'
 
 function App() {
-  const [isLogin, setIslogin] = useState(true);
-  // ! reference
-  // const [items, setItems] = useState(initialState.items);
-  // const [cartItems, setCartItems] = useState(initialState.cartItems);
+  const [isLogin, setIsLogin] = useState(true);
+  // ! 아래의 smokePlaces 를 잘 활용해야 함
+  // ! smokePlaces 는 (DB)smokePlaces 로 부터 axios
+  const [smokePlaces, setSmokePlaces] = useState(fakeData.smokePlaces)
+  // ! existingPlaceInfo 는 이미 DB에 저장된 장소에 관련한 onClick 실행 시 관련 정보를 다루는 상태
+  // ! Map 이던 List 이던 smokePlaces 의 데이타라는 점을 이용
+  const [existingPlaceInfo, setExistingPlaceInfo] = useState(null)
 
-  // const addToCart = (itemId) => {
-  //   const cartItemsIdList = [];
-  //   for (let i = 0; i < cartItems.length; i++) {
-  //     cartItemsIdList.push(cartItems[i].itemId);
-  //   }    
-  //   if (cartItemsIdList.indexOf(itemId) === -1) {
-  //     setCartItems([...cartItems, {"itemId": itemId, "quantity": 1}]);
-  //   } else {
-  //     const tempCartItems = cartItems.slice();
-  //     for (let i = 0; i < tempCartItems.length; i++) {
-  //       if (tempCartItems[i].itemId === itemId) {
-  //         tempCartItems[i].quantity++;
-  //         break;
-  //       }
-  //     }
-  //     setCartItems(tempCartItems);
-  //   }    
-  // }
+  // ! List, Map 둘 다 구현해야 함
+  // ! List
+  // ! Map
+  const handleExistingPlaceInfo = (smokePlaceId) => {
+    console.log(smokePlaceId)
+    setExistingPlaceInfo(smokePlaceId)
+  }
 
+  useEffect(() => {
+    console.log(123)
+  }, [existingPlaceInfo])
+
+  // ! 서버와의 연계(대충 흐름만)------------------------------------------
+  // const [smokePlaces, setSmokePlaces] = useState(null)
+  // ! 서버와의 연계(대충 흐름만)------------------------------------------
   // useEffect(() => {
-  //   console.log(cartItems)
-  //   console.log('up is cartItems /')
+  //   handleSmokePlaces()
   // })
+  // ! 서버와의 연계(대충 흐름만)------------------------------------------
+  // const handleSmokePlaces = () => {
+  //   if (!smokePlaces) {
+  //     axios.get('주소')
+  //       .then((res) => {
+  //         console.log(res.data);
+  //         setSmokePlaces()
+  //       })
+  //       .catch((err) => {
+  //         if (err.response.status === 401) {
+  //           setSmokePlaces() // ! 계속 null 로 남으면 무한... 그거 생각해봐야함.
+  //         }
+  //       })
+  //   }
+  //   return;
+  // }
+  // ! -------------------------------------------------------------
 
   return (
-    // 로그인 상태에 따른 모달창
-    // islogin ? 밑에 있는것 : 모달창
+    // ! 로그인 상태에 따라 모달창 띄우기(isLogin 이 false 시 모달창)
     isLogin ? (
       <div id="view">
         <Router>
-          <Nav/>
+          <Nav />
           <Switch>
             {/* <Route exact={true} path="/">
               <PageMain/>
@@ -75,36 +80,36 @@ function App() {
               <PageListDetail/>
             </Route>
             <Route path="/">
-              <PageMain/>
+              <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} />
             </Route>
           </Switch>
         </Router>
       </div>
     ) : (
       <Router>
-      <div id="overlayWrapper">
-        <Modal/>
-        <div id="overlayView">
-            <Nav/>
-            <Switch>
-              {/* <Route exact={true} path="/">
-                <PageMain/>
-              </Route> */}
-              <Route path="/user/info">
-                <PageMyPage/>
-              </Route>
-              <Route path="/place/upload">
-                <PagePlaceUpload/>
-              </Route>
-              <Route path="/list/detail">
-                <PageListDetail/>
-              </Route>
-              <Route path="/">
-                <PageMain/>
-              </Route>
-            </Switch>
+        <div id="overlayWrapper">
+          <Modal/>
+          <div id="overlayView">
+              <Nav/>
+              <Switch>
+                {/* <Route exact={true} path="/">
+                  <PageMain/>
+                </Route> */}
+                <Route path="/user/info">
+                  <PageMyPage/>
+                </Route>
+                <Route path="/place/upload">
+                  <PagePlaceUpload/>
+                </Route>
+                <Route path="/list/detail">
+                  <PageListDetail/>
+                </Route>
+                <Route path="/">
+                  <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} />
+                </Route>
+              </Switch>
+          </div>
         </div>
-      </div>
       </Router>
     )
   );

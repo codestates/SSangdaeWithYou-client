@@ -345,12 +345,13 @@ html,body {
   margin-left: 2%;
 } */
 
-#listEl {
+.listEl {
   display: flex;
   margin: 1% 5% 0;
   border-bottom: 2px solid #8e8e8e;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 }
 
 .listPlaceName {
