@@ -653,9 +653,6 @@ html,body {
 } */
 
 /* ----------------- ListDetail ------------------*/ 
-.forListDeFrame{
-  /* display: none; */
-}
 
 #listDetail {
   display: flex;
