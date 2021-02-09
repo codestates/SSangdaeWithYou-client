@@ -114,20 +114,24 @@ html,body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 }
 
 .modalKakao {
   height: 50px;
   width: 200px;
   margin: 15px;
+  cursor: pointer;
 }
 
 .modalSignUp {
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .modalNonMember {
   margin: 20px 0;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 900px) {
@@ -212,6 +216,7 @@ html,body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 }
 
 @media screen and (max-height: 569px) {
@@ -799,6 +804,7 @@ html,body {
   width: 30%;
   margin: 0 5% 0 0;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #messageButtonImg {

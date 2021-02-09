@@ -1,17 +1,16 @@
 import React from 'react';
-import { useState } from "react";
 
 import SignUp from '../components/SignUp';
 import SignIn from '../components/SignIn';
 
-function Modal() {
-  const [isSignup, setIssignup] = useState(true);
+function Modal({ isSignUp, handleIsSignUp, handleIsLogin, handleIsKakao }) {
+
   return (
     <div>
-      {isSignup ? (
-        <SignUp/> 
+      {isSignUp ? (
+        <SignUp handleIsSignUp={handleIsSignUp} /> 
       ) : (
-        <SignIn/>
+        <SignIn handleIsSignUp={handleIsSignUp} handleIsLogin={handleIsLogin} handleIsKakao={handleIsKakao}/>
       )}
     </div>
   );
