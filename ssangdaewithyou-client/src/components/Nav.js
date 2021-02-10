@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 function Nav({ handleIsLogin, isLogin, handleIsGuest }) {
   const history = useHistory()
@@ -29,6 +30,16 @@ function Nav({ handleIsLogin, isLogin, handleIsGuest }) {
               alert('로그아웃을 하셨습니다.')
               handleIsLogin()
               history.push("/")
+              axios
+                .post('https://ssangdae.gq/user/signout')
+                .then((res) => {
+                  console.log('logout res : ', res)
+                })
+                .catch((error) => {
+                  console.log(error.response)
+                  console.log(error.request)
+                  console.log(error.message)
+                })
             }}>Logout</div>
           ) : (
             <div id="navLog" onClick={() => {

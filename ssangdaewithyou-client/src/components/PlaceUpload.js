@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 
-function PlaceUpload({ userInfo, mapClickedPlace }) {
+
+axios.defaults.withCredentials = true;
+
+
+
+function PlaceUpload({ userInfo, mapClickedPlace, handleSmokePlaces }) {
   const [placeName, setPlaceName] = useState('')
   const [comment, setComment] = useState('')
 
@@ -10,19 +16,45 @@ function PlaceUpload({ userInfo, mapClickedPlace }) {
 
   const handleInputValuePlaceName = (e) => {
     setPlaceName(e.target.value)
-    console.log(placeName, userInfo.username, mapClickedPlace)
   }
 
   const handleInputValueComment = (e) => {
     setComment(e.target.value)
-    console.log(comment, userInfo.username, mapClickedPlace)
   }
 
   const handleNewPlaceSubmit = () => {
-    console.log('submit clicked')
-    // ! axios 시 placeName, comment, userInfo.username, mapClickedPlace)
-    alert(`${placeName}을(를) 정복하셨습니다!`)
-    history.push("/")
+    console.log('before axios')
+    console.log(document.cookie)
+    axios
+      .post('https://ssangdae.gq/list/detail/upload', {
+        headers: {
+          'content-type': 'application/json'
+        },
+        data: {
+          "userId":1,
+          "longitude": "127.12312", 
+          "latitude": "34.45632", 
+          "comment": "zzzzz",
+          "placeName": "종로"
+          // placeName: '종로',
+          // comment: 'zzzzz',
+          // userId: 1,
+          // latitude: '34.45632',
+          // longitude: '127.12312'
+        }
+      })
+      .then((res) => {
+        console.log('after then')
+        handleSmokePlaces()
+        console.log('submit clicked res : ', res)
+        alert(`${placeName}을(를) 정복하셨습니다!`)
+        history.push("/")
+      })
+      .catch((error) => {
+        console.log(error.response)
+        console.log(error.request)
+        console.log(error.messages)
+      })
   }
 
   return (

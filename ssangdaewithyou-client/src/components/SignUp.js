@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function SignUp({ handleIsSignUp }) {
   const [username, setUsername] = useState('')
@@ -23,7 +24,30 @@ function SignUp({ handleIsSignUp }) {
   };
 
   const handleSignUp = () => {
+    // const { email, password, mobile, username } = this.state;
+    // if (!email || !password || !mobile || !username) {
+    //   this.setState({
+    //     errorMessage: "모든 항목은 필수입니다"
+    //   });
+    //   return;
+    // }
+    // else {
+    //   this.setState({
+    //     errorMessage: ""
+    //   });
+    // }
 
+    axios
+      .post("https://ssangdae.gq/user/signup", {
+        username: username,
+        password: password,
+        email: email,
+        nickname: nickname
+      })
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => console.log(err));
   }
   // ! reference
   // const handleSignup = () => {
