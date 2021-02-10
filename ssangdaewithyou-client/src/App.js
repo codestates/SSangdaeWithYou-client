@@ -18,6 +18,7 @@ import axios from 'axios'
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
+  const [isGuest, setIsGuest] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   // ! 카카오 로그인이면 랜더링을 달리해줘야 하는 부분이 있어서 만듬
   const [isKakao, setIsKakao] = useState(false);
@@ -40,6 +41,10 @@ function App() {
   // ! Modal로 내려줘서...
   const handleUserInfo = () => {
     SetUserInfo()
+  }
+
+  const handleIsGuest = () => {
+    setIsGuest(!isGuest)
   }
 
   const handleIsLogin = () => {
@@ -94,19 +99,19 @@ function App() {
 
   return (
     // ! 로그인 상태에 따라 모달창 띄우기(isLogin 이 false 시 모달창)
-    isLogin ? (
+    isLogin || isGuest ? (
       <div id="view">
         <Router>
-          <Nav />
+          <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest}/>
           <Switch>
             {/* <Route exact={true} path="/">
               <PageMain/>
             </Route> */}
             <Route path="/user/info">
-              <PageMyPage userInfo={userInfo} isKakao={isKakao} />
+              <PageMyPage userInfo={userInfo} isKakao={isKakao} isLogin={isLogin} />
             </Route>
             <Route path="/place/upload">
-              <PagePlaceUpload/>
+              <PagePlaceUpload userInfo={userInfo} mapClickedPlace={mapClickedPlace} />
             </Route>
             <Route path="/list/detail">
               <PageListDetail existingPlaceInfo={existingPlaceInfo} />
@@ -115,7 +120,7 @@ function App() {
               <PageEasterEgg />
             </Route>
             <Route path="/">
-              <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />
+              <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} isLogin={isLogin} />
             </Route>
           </Switch>
         </Router>
@@ -123,18 +128,18 @@ function App() {
     ) : (
       <Router>
         <div id="overlayWrapper">
-          <Modal isSignUp={isSignUp} handleIsSignUp={handleIsSignUp} handleIsLogin={handleIsLogin} handleIsKakao={handleIsKakao} />
+          <Modal isSignUp={isSignUp} handleIsSignUp={handleIsSignUp} handleIsLogin={handleIsLogin} handleIsKakao={handleIsKakao} handleIsGuest={handleIsGuest} />
           <div id="overlayView">
-              <Nav/>
+              <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest}/>
               <Switch>
                 {/* <Route exact={true} path="/">
                   <PageMain/>
                 </Route> */}
                 <Route path="/user/info">
-                  <PageMyPage userInfo={userInfo} isKakao={isKakao} />
+                  <PageMyPage userInfo={userInfo} isKakao={isKakao} isLogin={isLogin} />
                 </Route>
                 <Route path="/place/upload">
-                  <PagePlaceUpload/>
+                  <PagePlaceUpload userInfo={userInfo} mapClickedPlace={mapClickedPlace} />
                 </Route>
                 <Route path="/list/detail">
                   <PageListDetail existingPlaceInfo={existingPlaceInfo} />
@@ -143,7 +148,7 @@ function App() {
                   <PageEasterEgg />
                 </Route>
                 <Route path="/">
-                  <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} />
+                  <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} isLogin={isLogin} />
                 </Route>
               </Switch>
           </div>

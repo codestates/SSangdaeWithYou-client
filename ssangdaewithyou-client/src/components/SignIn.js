@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function SignIn({ handleIsSignUp, handleIsLogin, handleIsKakao }) {
+function SignIn({ handleIsSignUp, handleIsLogin, handleIsKakao, handleIsGuest }) {
   // ! api 문서가 잘못된 듯. userid => username 인듯
   const [userid, setUserid] = useState('')
   const [password, setPassword] = useState('')
@@ -102,7 +102,7 @@ function SignIn({ handleIsSignUp, handleIsLogin, handleIsKakao }) {
       </div>
       <img src="../img/kakao.png" className="modalKakao" alt="profile" onClick={handleLoginKakao}/>
       <div className="modalSignUp" onClick={handleIsSignUp}>회원가입</div>
-      <div className="modalNonMember" onClick={handleIsLogin}>비회원으로 계속하기</div>
+      <div className="modalNonMember" onClick={handleIsGuest}>비회원으로 계속하기</div>
     </div>
   )
 }
