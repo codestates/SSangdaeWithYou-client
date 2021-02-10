@@ -1,18 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function SignUp({ handleIsSignUp }) {
+  // 상태관리로 기본 true를 주고 
+  // 어떠한 조건이 부합하면 true, 부합하지 않으면 false
+  const [checkId, setCheckId] = useState(true);
+  const [checkPassword, setCheckPassword] = useState(true);
+  const [checkEm, setCheckEm] = useState(true);
+  const [checkNn, setCheckNn] = useState(true);
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [rePassword, setRePassword] = useState('');
   const [email, setEmail] = useState('')
   const [nickname, setNickname] = useState('')
+  
+  useEffect(() => {
+    handleCheckPassword();
+    handleCheckId();
+    handleCheckEmail();
+    handleCheckNickName();
+  })
 
   const handleInputValueUsername = (e) => {
     setUsername(e.target.value);
   };
 
   const handleInputValuePassword = (e) => {
-    setPassword(e.target.value)
+    setPassword(e.target.value);
+  };
+
+  const handleInputValueRePassword = (e) => {
+    setRePassword(e.target.value);
+  };
+
+  const handleCheckId = () => {
+    if (username.length < 3 || username.length > 10) {
+      setCheckId(false);
+    } else {
+      setCheckId(true);
+    }
+  }
+
+  const handleCheckPassword = () => {
+    if (password !== rePassword) {
+      setCheckPassword(false);
+    } else {
+      setCheckPassword(true);
+    }
+  };
+
+  const handleCheckEmail = () => {
+    let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(email)) {
+      setCheckEm(true);
+    } else {
+      setCheckEm(false);
+    }
+  }
+
+  const handleCheckNickName = () => {
+    if (nickname.length > 0 && nickname.length < 10) {
+      setCheckNn(true);
+    } else {
+      setCheckNn(false);
+    }
   };
 
   const handleInputValueEmail = (e) => {
@@ -23,31 +75,31 @@ function SignUp({ handleIsSignUp }) {
     setNickname(e.target.value)
   };
 
-  const handleSignUp = () => {
-    // const { email, password, mobile, username } = this.state;
-    // if (!email || !password || !mobile || !username) {
-    //   this.setState({
-    //     errorMessage: "모든 항목은 필수입니다"
-    //   });
-    //   return;
-    // }
-    // else {
-    //   this.setState({
-    //     errorMessage: ""
-    //   });
-    // }
+ 
 
-    axios
-      .post("https://ssangdae.gq/user/signup", {
-        username: username,
-        password: password,
-        email: email,
-        nickname: nickname
-      })
-      .then((res) => {
-        console.log(res)
-      })
-      .catch((err) => console.log(err));
+  const handleSignUp = () => {
+    if (username !== '' || password !== '' || rePassword !== '' || email !== '' || nickname !== '') {
+      if (!checkId || !checkPassword || !checkEm || !checkNn) {
+        return;
+      } else {
+        alert('회원가입이 완료되었습니다! 로그인을 해주세요.');
+        handleIsSignUp();
+        // ! 회원가입 요청을 axios로 날리자. 종훈님 여기에요!
+        axios
+        .post("https://ssangdae.gq/user/signup", {
+          username: username,
+          password: password,
+          email: email,
+          nickname: nickname
+        })
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((err) => console.log(err));
+      }
+    } else {
+      return;
+    }
   }
   // ! reference
   // const handleSignup = () => {
@@ -89,15 +141,31 @@ function SignUp({ handleIsSignUp }) {
         <div className="modalLogoText1">쌍대는 너랑</div>
         <div className="modalLogoText2">(돗대는 나만)</div>
       </div>
-      <input type="text" placeholder="아이디" className="SignUp" onChange={handleInputValueUsername}/>  
-      <input type="text" placeholder="비밀번호" className="SignUp" onChange={handleInputValuePassword}/>
-      <input type="text" placeholder="e-mail" className="SignUp" onChange={handleInputValueEmail}/>
+      <input type="text" placeholder="아이디" className="SignUp" onChange={handleInputValueUsername}/>
+      {checkId ? <div></div>:
+        <div className="checkPw">아이디는 3자 이상 10자 이하입니다.</div>
+      }
+      <input type="password" placeholder="비밀번호" className="SignUp" onChange={handleInputValuePassword}/>
+      <input type="password" placeholder="비밀번호 확인" className="SignUp" onChange={handleInputValuePassword, handleInputValueRePassword}/>
+      {checkPassword ? 
+        <div></div>
+      : 
+        <div className="checkPw">비밀번호가 맞지 않습니다.</div>
+      }
+      <input type="email" placeholder="e-mail" className="SignUp" onChange={handleInputValueEmail}/>
+      {checkEm ? 
+        <div></div>
+      : 
+        <div className="checkPw">정확한 이메일 형식이 아닙니다.</div>
+      } 
       <input type="text" placeholder="닉네임" className="SignUp" onChange={handleInputValueNickname}/>
+      {checkNn ? 
+        <div></div>
+      : 
+        <div className="checkPw">닉네임은 10자 이하입니다.</div>
+      }
       <div className="SignUpButton" onClick={() => {
         handleSignUp();
-        handleIsSignUp();
-        // ! UI/UX 위해 회원가입 실패시에 대한 부분 추가하길
-        alert('회원가입이 완료되었습니다! 로그인을 해주세요.')
       }}>
         <div>회원가입</div>
       </div>
