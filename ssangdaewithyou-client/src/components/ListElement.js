@@ -5,7 +5,7 @@ function ListElement({ smokePlace, handleExistingPlaceInfo }) {
   const history = useHistory()
 
   return (
-      // ! UX 위해 CSS 추가 className="listEl" 에 cursor: pointer;
+      // ! UI/UX 위해 CSS 추가 className="listEl" 에 cursor: pointer;
       // ! <div id="listEl"> 를 <div className="listEl"> 으로 변경
       <div className="listEl" onClick={() => {
         handleExistingPlaceInfo(smokePlace)

@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Message from './Message';
 
 function Messages({ chosenListDetail }) {
+  const [newMessage, setNewMessage] = useState('')
+
+  const handleInputValueNewMessage = (e) => {
+    setNewMessage(e.target.value)
+    console.log(newMessage)
+  }
+
+  // ! 서버에 post 요청 후 res로 받아오는 messages 랜더링
+  const handleNewMessageSubmit = () => {
+    console.log('handleNewMessageSubmit clicked')
+  }
 
   return (
     <div id="message">
       <div id="userMessage">
         <div id="userId">ID</div>
-        <textarea placeholder="댓글 추가" id="userText"></textarea>
+        <textarea placeholder="댓글 추가" id="userText" onChange={handleInputValueNewMessage}></textarea>
         <div className="forUserMessageTop"></div>
         <div id="forAlignButton">
-          <div id="messageButton">
+          <div id="messageButton" onClick={handleNewMessageSubmit}>
             <div id="messageButtonText">submit</div>
           </div>
         </div>
@@ -18,7 +29,7 @@ function Messages({ chosenListDetail }) {
       {!chosenListDetail ? (
         <div></div>
       ) : (
-        chosenListDetail.map((message) => <Message message={message} />)
+        chosenListDetail.map((message, idx) => <Message message={message} key={idx} />) // ! key 대충 준거라 나중에 check
       )}
     </div>
   )

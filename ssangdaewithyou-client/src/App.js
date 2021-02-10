@@ -17,7 +17,10 @@ import { fakeData } from './fakeData/fakeData';
 import axios from 'axios'
 
 function App() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
+  // ! 카카오 로그인이면 랜더링을 달리해줘야 하는 부분이 있어서 만듬
+  const [isKakao, setIsKakao] = useState(false);
   // ! 아래의 smokePlaces 를 잘 활용해야 함
   // ! smokePlaces 는 (DB)smokePlaces 로 부터 axios
   const [smokePlaces, setSmokePlaces] = useState(fakeData.smokePlaces)
@@ -29,6 +32,23 @@ function App() {
   const [mapClickedPlace, setMapClickedPlace] = useState({ lat: 0, lng: 0 })
   // ! DB랑 연결했을 때는 DB에서 쏴주는 정보를 userInfo에 주면 되므로, 일단은 fakeData 하나를 임의로 주겠다
   const [userInfo, SetUserInfo] = useState(fakeData.users[2])
+
+  const handleIsKakao = () => {
+    setIsKakao(!isKakao)
+  }
+
+  // ! Modal로 내려줘서...
+  const handleUserInfo = () => {
+    SetUserInfo()
+  }
+
+  const handleIsLogin = () => {
+    setIsLogin(!isLogin)
+  }
+
+  const handleIsSignUp = () => {
+    setIsSignUp(!isSignUp)
+  }
 
   // ! 지도상의 위치를 클릭했을 때,
   // ! 1. 해당 위치를 지도의 중앙에 위치시키고
@@ -83,7 +103,7 @@ function App() {
               <PageMain/>
             </Route> */}
             <Route path="/user/info">
-              <PageMyPage userInfo={userInfo} />
+              <PageMyPage userInfo={userInfo} isKakao={isKakao} />
             </Route>
             <Route path="/place/upload">
               <PagePlaceUpload/>
@@ -103,7 +123,7 @@ function App() {
     ) : (
       <Router>
         <div id="overlayWrapper">
-          <Modal/>
+          <Modal isSignUp={isSignUp} handleIsSignUp={handleIsSignUp} handleIsLogin={handleIsLogin} handleIsKakao={handleIsKakao} />
           <div id="overlayView">
               <Nav/>
               <Switch>
@@ -111,7 +131,7 @@ function App() {
                   <PageMain/>
                 </Route> */}
                 <Route path="/user/info">
-                  <PageMyPage userInfo={userInfo} />
+                  <PageMyPage userInfo={userInfo} isKakao={isKakao} />
                 </Route>
                 <Route path="/place/upload">
                   <PagePlaceUpload/>
