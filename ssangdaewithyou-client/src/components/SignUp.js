@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function SignUp({ handleIsSignUp }) {
   // 상태관리로 기본 true를 주고 
@@ -74,6 +75,8 @@ function SignUp({ handleIsSignUp }) {
     setNickname(e.target.value)
   };
 
+ 
+
   const handleSignUp = () => {
     if (username !== '' || password !== '' || rePassword !== '' || email !== '' || nickname !== '') {
       if (!checkId || !checkPassword || !checkEm || !checkNn) {
@@ -82,6 +85,17 @@ function SignUp({ handleIsSignUp }) {
         alert('회원가입이 완료되었습니다! 로그인을 해주세요.');
         handleIsSignUp();
         // ! 회원가입 요청을 axios로 날리자. 종훈님 여기에요!
+        axios
+        .post("https://ssangdae.gq/user/signup", {
+          username: username,
+          password: password,
+          email: email,
+          nickname: nickname
+        })
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((err) => console.log(err));
       }
     } else {
       return;

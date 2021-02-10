@@ -43,7 +43,27 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
           />
           <EasterEgg />
           {/* // ! fakeData */}
-          {smokePlaces.map((smokePlace) =>
+          {!smokePlaces ? (
+            <div></div>
+            ) : (
+            <div>
+              {smokePlaces.map((smokePlace) =>
+                <Marker
+                  key={smokePlace.id}
+                  position={{ lat: smokePlace.latitude, lng: smokePlace.longitude}}
+                  onClick={() => {
+                    if (isLogin) {
+                      handleExistingPlaceInfo(smokePlace);
+                      history.push("/list/detail")
+                    } else {
+                      alert('로그인을 해주세요.')
+                    }
+                  }}
+                />
+              )}
+            </div>
+          )}
+          {/* {smokePlaces.map((smokePlace) =>
             <Marker
               key={smokePlace.id}
               position={{ lat: smokePlace.latitude, lng: smokePlace.longitude}}
@@ -56,7 +76,7 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
                 }
               }}
             />
-          )}
+          )} */}
         </NaverMap>
         {/* // ! Geolocation */}
         <Geolocation handleMapClick={handleMapClick}/>

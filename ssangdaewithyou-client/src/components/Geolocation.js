@@ -5,6 +5,7 @@ class UserLocation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // ! count 얌생이 수정 필요
       didUpdateCount: 0
     }
   }
