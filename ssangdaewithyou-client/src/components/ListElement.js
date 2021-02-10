@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-function ListElement({ smokePlace, handleExistingPlaceInfo, isLogin }) {
+function ListElement({ listSmokePlace, handleExistingPlaceInfo, isLogin }) {
   const history = useHistory()
 
   return (
@@ -9,15 +9,16 @@ function ListElement({ smokePlace, handleExistingPlaceInfo, isLogin }) {
       // ! <div id="listEl"> 를 <div className="listEl"> 으로 변경
       <div className="listEl" onClick={() => {
         if (isLogin) {
-          handleExistingPlaceInfo(smokePlace)
+          handleExistingPlaceInfo(listSmokePlace)
           history.push("/list/detail")
           // alert(smokePlace.id)          
         } else {
           alert('로그인을 해주세요.')
         }
       }}>
-        <div className="listPlaceName">{smokePlace.placeName}</div>
-        <div className="listPlaceUser">{smokePlace.nickname}</div>
+        {/* // ! zxcvzxcv */}
+        <div className="listPlaceName">{listSmokePlace.placeName}</div>
+        <div className="listPlaceUser">지금 위치로 부터 {parseInt(listSmokePlace.distance)} m</div>
       </div>
   );
 }

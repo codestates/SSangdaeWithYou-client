@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import ListElement from './ListElement';
 
-function List({ smokePlaces, handleExistingPlaceInfo, isLogin }) {
+function List({ smokePlaces, handleExistingPlaceInfo, isLogin, listSmokePlaces}) {
   const history = useHistory()
 
   return (
@@ -18,8 +18,14 @@ function List({ smokePlaces, handleExistingPlaceInfo, isLogin }) {
           Take over the zone
         </div>
       </div>
-      {smokePlaces.map((smokePlace) => <ListElement key={smokePlace.id} smokePlace={smokePlace} handleExistingPlaceInfo={handleExistingPlaceInfo} isLogin={isLogin}/>)}
-      {/* {smokePlaces.map((ele, idx) => <ListElement key={idx}/>)} */}
+      {!listSmokePlaces ? (
+        <div></div>
+      ) : (
+        <div>
+          {listSmokePlaces.map((listSmokePlace, idx) => <ListElement key={idx} listSmokePlace={listSmokePlace} handleExistingPlaceInfo={handleExistingPlaceInfo} isLogin={isLogin}/>)}
+        </div>
+      )}
+      {/* {smokePlaces.map((smokePlace) => <ListElement key={smokePlace.id} smokePlace={smokePlace} handleExistingPlaceInfo={handleExistingPlaceInfo} isLogin={isLogin}/>)} */}
     </div>
   );
 }
