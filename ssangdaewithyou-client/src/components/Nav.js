@@ -28,6 +28,7 @@ function Nav({ handleIsLogin, isLogin, handleIsGuest }) {
             <div id="navLog" onClick={() => {
               alert('로그아웃을 하셨습니다.')
               handleIsLogin()
+              history.push("/")
             }}>Logout</div>
           ) : (
             <div id="navLog" onClick={() => {

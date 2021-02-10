@@ -11,7 +11,7 @@ function Messages({ chosenListDetail }) {
 
   // ! 서버에 post 요청 후 res로 받아오는 messages 랜더링
   const handleNewMessageSubmit = () => {
-    console.log('handleNewMessageSubmit clicked')
+    alert('handleNewMessageSubmit clicked')
   }
 
   return (
