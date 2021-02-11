@@ -63,7 +63,7 @@ function SignIn({ handleIsSignUp, handleIsLogin, handleIsKakao, handleIsGuest })
         password: password
       })
       .then((res) => {
-        console.log(res)
+        console.log(res);
         handleIsLogin();
       })
       .catch((error) => {
