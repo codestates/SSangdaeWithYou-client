@@ -310,6 +310,9 @@ html,body {
   padding: 5px;
   width: 300px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #navMap {

@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-function Nav({ handleIsLogin, isLogin, handleIsGuest }) {
+function Nav({ handleIsLogin, isLogin, handleIsGuest, isModal }) {
   const history = useHistory()
-
+  
   return (
     <div id="nav">
       <div id="navLeft"></div>
@@ -42,10 +42,16 @@ function Nav({ handleIsLogin, isLogin, handleIsGuest }) {
                 })
             }}>Logout</div>
           ) : (
-            <div id="navLog" onClick={() => {
-              handleIsGuest()
-              history.push("/")
-            }}>Login</div>
+            isModal ? (
+              <div id="navLog" onClick={() => {
+                alert('로그인을 해주세요.');
+              }}></div>
+            ) : (
+              <div id="navLog" onClick={() => {
+                handleIsGuest()
+                history.push("/")
+              }}>Login</div>
+            )
           )}
 
         </div>
