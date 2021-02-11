@@ -16,9 +16,9 @@ import './App.css';
 import { fakeData } from './fakeData/fakeData';
 import axios from 'axios'
 
+axios.defaults.withCredentials = true;
+
 function App() {
-  // ! count 얌생이 수정 필요
-  const [count, setCount] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
   const [isGuest, setIsGuest] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
@@ -36,55 +36,35 @@ function App() {
   const [mapCenter, setMapCenter] = useState({ lat: 37.510744, lng: 126.9818086 }); // ! 대략 서울 중심
   const [mapClickedPlace, setMapClickedPlace] = useState({ lat: 0, lng: 0 })
   // ! DB랑 연결했을 때는 DB에서 쏴주는 정보를 userInfo에 주면 되므로, 일단은 fakeData 하나를 임의로 주겠다
-  const [userInfo, SetUserInfo] = useState(123)
-
+  const [userInfo, SetUserInfo] = useState(null)
   // ! 리스트 처리 위한 state 추가
   const [listSmokePlaces, setListSmokePlaces] = useState(null);
 
-
-
-  axios.defaults.withCredentials = true;
-
-
-
-  const qwer = () => {
-    axios
-      .post('https://ssangdae.gq/list/detail/upload', {
-        data: {
-          "userId": 1,
-          "longitude": "127.12312", 
-          "latitude": "34.45632", 
-          "comment": "zzzzz",
-          "placeName": "종로"
-        }
-      }
-      )
-      .then((res) => {
-        console.log('after then')
-        handleSmokePlaces()
-        console.log('submit clicked res : ', res)
-      })
-      .catch((error) => {
-        console.log(error.response)
-        console.log(error.request)
-        console.log(error.message)
-      })
+  const handleIsKakao = () => {
+    setIsKakao(!isKakao)
   }
 
+  const handleIsGuest = () => {
+    setIsGuest(!isGuest)
+    setIsModal(false);
+  }
 
+  const handleIsSignUp = () => {
+    setIsSignUp(!isSignUp)
+  }
 
-  useEffect(() => {
-    handleUserInfo()
-  }, [isLogin])
+  const handleIsLogin = () => {
+    setIsLogin(!isLogin)
+  }
 
+//-----------------------------------------------------------------------
   const handleUserInfo = () => {
-    console.log('제발')
     if (isLogin) {
       axios
       .post('https://ssangdae.gq/user/info')
       .then((res) => {
-        console.log(res)
-        SetUserInfo(res)
+        // ! zxcvzxcv
+        SetUserInfo(res.data)
       })
       .catch((error) => {
         console.log(error.respsonse)
@@ -95,44 +75,14 @@ function App() {
       return;
     }
   }
-
-
-
-  const handleIsKakao = () => {
-    setIsKakao(!isKakao)
-  }
-
-  // ! Modal로 내려줘서...
-  // const handleUserInfo = () => {
-  //   axios
-  //     .post('https://ssangdae.gq/user/info')
-  //     .then((res) => {
-  //       console.log(res)
-  //       SetUserInfo(1)
-  //     })
-  // }
-
-  const handleIsGuest = () => {
-    setIsGuest(!isGuest)
-    setIsModal(false);
-  }
-
-  const handleIsLogin = () => {
-    setIsLogin(!isLogin)
-  }
-
-  const handleIsSignUp = () => {
-    setIsSignUp(!isSignUp)
-  }
-
-  // ! count 얌생이 수정 필요
+  
   useEffect(() => {
-    // if (count === 0) {
-      handleListSmokePlaces()
-    //   setCount(1)
-    // }
-  }, [mapClickedPlace])
+    handleUserInfo()
+  }, [isLogin])
+//-----------------------------------------------------------------------
 
+
+//-----------------------------------------------------------------------
   const handleListSmokePlaces = () => {
     axios
       .post('https://ssangdae.gq/list', {
@@ -140,20 +90,29 @@ function App() {
         longitude: mapClickedPlace.lng
       })
       .then((res) => {
-        // ! zxcvzxcv
         setListSmokePlaces(res.data);
         console.log('list res :', res)
       })
   }
 
-  // ! 지도상의 위치를 클릭했을 때,
+  useEffect(() => {
+    handleListSmokePlaces()
+  }, [mapClickedPlace])
+//-----------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------
+// ! 지도상의 위치를 클릭했을 때,
   // ! 1. 해당 위치를 지도의 중앙에 위치시키고
   // ! 2. 해당 위치에 마커(통통 튀는 animation 적용됨)를 놓는다
   const handleMapClick = (latitude, longitude) => {
     setMapCenter({ lat: latitude, lng: longitude });
     setMapClickedPlace({ lat: latitude, lng: longitude });
   }
+//-----------------------------------------------------------------------
 
+
+//-----------------------------------------------------------------------
   // ! List, Map 의 특정 위치(이미 DB에 등록된 위치 중 하나)를 클릭했을 때,
   // ! 해당 위치의 정보를 담은 /list/detail로 넘어간다
   const handleExistingPlaceInfo = (smokePlace) => {
@@ -163,11 +122,10 @@ function App() {
   useEffect(() => {
     console.log('existingPlaceInfo:', existingPlaceInfo)
   }, [existingPlaceInfo])
+//-----------------------------------------------------------------------
 
-  useEffect(() => {
-    handleSmokePlaces()
-  })
 
+//-----------------------------------------------------------------------
   const handleSmokePlaces = () => {
     if (!smokePlaces) {
       axios.get('https://ssangdae.gq/list/detail/getAllData')
@@ -175,32 +133,35 @@ function App() {
           setSmokePlaces(res.data)
           console.log('smokePlaces : ', res.data);
         })
-        // .catch((err) => {
-        //   if (err.response.status === 401) {
-        //     setSmokePlaces() // ! 계속 null 로 남으면 무한... 그거 생각해봐야함.
-        //   }
-        // })
     }
     return;
   }
-  // ! -------------------------------------------------------------
+
+  const handleSmokePlacesToNull = () => {
+    setSmokePlaces(null)
+  }
+
+  useEffect(() => {
+    handleSmokePlaces()
+  })
+//-----------------------------------------------------------------------
+
 
   return (
     // ! 로그인 상태에 따라 모달창 띄우기(isLogin 이 false 시 모달창)
     isLogin || isGuest ? (
       <div id="view">
         <Router>
-          <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest}/>
-          <div onClick={qwer}>12345678</div>
+          <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest} />
           <Switch>
             {/* <Route exact={true} path="/">
               <PageMain/>
             </Route> */}
             <Route path="/user/info">
-              <PageMyPage userInfo={userInfo} isKakao={isKakao} isLogin={isLogin} />
+              <PageMyPage userInfo={userInfo} isKakao={isKakao} />
             </Route>
             <Route path="/place/upload">
-              <PagePlaceUpload userInfo={userInfo} mapClickedPlace={mapClickedPlace} handleSmokePlaces={handleSmokePlaces} />
+              <PagePlaceUpload userInfo={userInfo} mapClickedPlace={mapClickedPlace} handleSmokePlaces={handleSmokePlaces} handleSmokePlacesToNull={handleSmokePlacesToNull}/>
             </Route>
             <Route path="/list/detail">
               <PageListDetail existingPlaceInfo={existingPlaceInfo} />
@@ -209,7 +170,7 @@ function App() {
               <PageEasterEgg />
             </Route>
             <Route path="/">
-              <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} isLogin={isLogin} listSmokePlaces={listSmokePlaces}/>
+              <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} isLogin={isLogin} listSmokePlaces={listSmokePlaces} />
             </Route>
           </Switch>
         </Router>
@@ -220,16 +181,15 @@ function App() {
           <Modal isSignUp={isSignUp} handleIsSignUp={handleIsSignUp} handleIsLogin={handleIsLogin} handleIsKakao={handleIsKakao} handleIsGuest={handleIsGuest} />
           <div id="overlayView">
               <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest} isModal={isModal}/>
-              <div onClick={qwer}>12345678</div>
               <Switch>
                 {/* <Route exact={true} path="/">
                   <PageMain/>
                 </Route> */}
                 <Route path="/user/info">
-                  <PageMyPage userInfo={userInfo} isKakao={isKakao} isLogin={isLogin} />
+                  <PageMyPage userInfo={userInfo} isKakao={isKakao} />
                 </Route>
                 <Route path="/place/upload">
-                  <PagePlaceUpload userInfo={userInfo} mapClickedPlace={mapClickedPlace} handleSmokePlaces={handleSmokePlaces}/>
+                  <PagePlaceUpload userInfo={userInfo} mapClickedPlace={mapClickedPlace} handleSmokePlaces={handleSmokePlaces} handleSmokePlacesToNull={handleSmokePlacesToNull}/>
                 </Route>
                 <Route path="/list/detail">
                   <PageListDetail existingPlaceInfo={existingPlaceInfo} />

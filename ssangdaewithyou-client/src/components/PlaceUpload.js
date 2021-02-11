@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-
-
-axios.defaults.withCredentials = true;
-
-
-
-function PlaceUpload({ userInfo, mapClickedPlace, handleSmokePlaces }) {
+function PlaceUpload({ userInfo, mapClickedPlace, handleSmokePlacesToNull }) {
   const [placeName, setPlaceName] = useState('')
   const [comment, setComment] = useState('')
 
@@ -23,34 +17,25 @@ function PlaceUpload({ userInfo, mapClickedPlace, handleSmokePlaces }) {
   }
 
   const handleNewPlaceSubmit = () => {
-    console.log('before axios')
-    console.log(document.cookie)
     axios
       .post('https://ssangdae.gq/list/detail/upload', {
         headers: {
           'content-type': 'application/json'
         },
         data: {
-          "userId":1,
-          "longitude": "127.12312", 
-          "latitude": "34.45632", 
-          "comment": "zzzzz",
-          "placeName": "종로"
-          // placeName: '종로',
-          // comment: 'zzzzz',
-          // userId: 1,
-          // latitude: '34.45632',
-          // longitude: '127.12312'
+          placeName: placeName,
+          comment: comment,
+          latitude: '37.503383',
+          longitude: '127.0184265'
         }
       })
       .then((res) => {
-        console.log('after then')
-        handleSmokePlaces()
-        console.log('submit clicked res : ', res)
+        handleSmokePlacesToNull()
         alert(`${placeName}을(를) 정복하셨습니다!`)
         history.push("/")
       })
       .catch((error) => {
+        alert('정복에 실패햐셨습니다.')
         console.log(error.response)
         console.log(error.request)
         console.log(error.messages)
@@ -60,7 +45,9 @@ function PlaceUpload({ userInfo, mapClickedPlace, handleSmokePlaces }) {
   return (
     <div>
       {mapClickedPlace.lat === 0 && mapClickedPlace.lng === 0 ? (
-        <div>지도에서 원하는 위치를 클릭해주세요! 더 좋은 UI/UX 로 찾아뵙겠습니다.</div>
+        <div>
+          {history.push("/")}
+        </div>
       ) : (
         <div id="PlaceUpload">
           <div className="initText">이 구역의 최초 정복자가 되어주세요</div>

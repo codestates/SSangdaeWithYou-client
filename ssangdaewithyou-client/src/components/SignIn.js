@@ -33,6 +33,12 @@ function SignIn({ handleIsSignUp, handleIsLogin, handleIsKakao, handleIsGuest })
         handleIsLogin();
         handleIsKakao();
       })
+      .catch((error) => {
+        alert('로그인에 실패하셨습니다.')
+        console.log(error.response)
+        console.log(error.request)
+        console.log(error.message)
+      })
 
       console.log('Kakao 로그인')
   }
@@ -61,6 +67,7 @@ function SignIn({ handleIsSignUp, handleIsLogin, handleIsKakao, handleIsGuest })
         handleIsLogin();
       })
       .catch((error) => {
+        alert('로그인에 실패하셨습니다.')
         console.log(error.response)
         console.log(error.request)
         console.log(error.message)
