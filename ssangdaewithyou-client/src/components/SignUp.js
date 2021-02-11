@@ -82,20 +82,24 @@ function SignUp({ handleIsSignUp }) {
       if (!checkId || !checkPassword || !checkEm || !checkNn) {
         return;
       } else {
-        alert('회원가입이 완료되었습니다! 로그인을 해주세요.');
         handleIsSignUp();
         // ! 회원가입 요청을 axios로 날리자. 종훈님 여기에요!
         axios
-        .post("https://ssangdae.gq/user/signup", {
-          username: username,
-          password: password,
-          email: email,
-          nickname: nickname
-        })
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((err) => console.log(err));
+          .post("https://ssangdae.gq/user/signup", {
+            username: username,
+            password: password,
+            email: email,
+            nickname: nickname
+          })
+          .then((res) => {
+            alert('회원가입이 완료되었습니다! 로그인을 해주세요.');
+            console.log(res)
+          })
+          .catch((err) => {
+            // ! zxcvzxcv
+            alert('회원가입에 실패햐셨습니다. 이미 가입한 이메일일 수가 있어요ㅠㅠ 우리도 이유는 잘 몰라요ㅠㅠ');
+            console.log(err)
+          });
       }
     } else {
       return;

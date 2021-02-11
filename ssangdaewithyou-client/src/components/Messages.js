@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Message from './Message';
 
-function Messages({ chosenListDetail }) {
+function Messages({ chosenPlaceMessage }) {
   const [newMessage, setNewMessage] = useState('')
 
   const handleInputValueNewMessage = (e) => {
@@ -26,11 +26,11 @@ function Messages({ chosenListDetail }) {
           </div>
         </div>
       </div>
-      {!chosenListDetail ? (
+      {/* {!chosenPlaceMessage ? (
         <div></div>
       ) : (
-        chosenListDetail.map((message, idx) => <Message message={message} key={idx} />) // ! key 대충 준거라 나중에 check
-      )}
+        chosenPlaceMessage.map((message, idx) => <Message message={message} key={idx} />) // ! key 대충 준거라 나중에 check
+      )} */}
     </div>
   )
 }

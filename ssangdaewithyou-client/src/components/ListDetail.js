@@ -2,7 +2,7 @@ import React from 'react';
 import LikeOrDislike from './LikeOrDislike';
 import Messages from './Messages';
 
-function ListDetail({ existingPlaceInfo, chosenListDetail }) {
+function ListDetail({ existingPlaceInfo, chosenPlaceMessage }) {
 
   return (
     <div className="forListDeFrame">
@@ -22,7 +22,7 @@ function ListDetail({ existingPlaceInfo, chosenListDetail }) {
           </div>
         </div>
         <LikeOrDislike />
-        <Messages chosenListDetail={chosenListDetail} />
+        <Messages chosenPlaceMessage={chosenPlaceMessage} />
       </div>
     </div>
   );
