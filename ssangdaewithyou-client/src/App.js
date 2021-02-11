@@ -22,6 +22,8 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isGuest, setIsGuest] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
+  // ! isModal 이 true면 map이 움직이지 않도록
+  const [isModal, setIsModal] = useState(true);
   // ! 카카오 로그인이면 랜더링을 달리해줘야 하는 부분이 있어서 만듬
   const [isKakao, setIsKakao] = useState(false);
   // ! 아래의 smokePlaces 를 잘 활용해야 함
@@ -112,6 +114,7 @@ function App() {
 
   const handleIsGuest = () => {
     setIsGuest(!isGuest)
+    setIsModal(false);
   }
 
   const handleIsLogin = () => {
@@ -216,7 +219,7 @@ function App() {
         <div id="overlayWrapper">
           <Modal isSignUp={isSignUp} handleIsSignUp={handleIsSignUp} handleIsLogin={handleIsLogin} handleIsKakao={handleIsKakao} handleIsGuest={handleIsGuest} />
           <div id="overlayView">
-              <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest}/>
+              <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest} isModal={isModal}/>
               <div onClick={qwer}>12345678</div>
               <Switch>
                 {/* <Route exact={true} path="/">
@@ -235,7 +238,7 @@ function App() {
                   <PageEasterEgg />
                 </Route>
                 <Route path="/">
-                  <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} isLogin={isLogin} listSmokePlaces={listSmokePlaces}/>
+                  <PageMain smokePlaces={smokePlaces} handleExistingPlaceInfo={handleExistingPlaceInfo} mapCenter={mapCenter} mapClickedPlace={mapClickedPlace} handleMapClick={handleMapClick} isLogin={isLogin} listSmokePlaces={listSmokePlaces} isModal={isModal}/>
                 </Route>
               </Switch>
           </div>
