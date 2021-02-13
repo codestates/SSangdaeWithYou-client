@@ -11,6 +11,10 @@ function Messages({ existingPlaceInfo }) {
   const [newMessage, setNewMessage] = useState('')
   const [isLatest, setIsLatest] = useState(true)
 
+  const handleRecentlyMessege = () => {
+    
+  }
+
   const handleMessageReverse = (arr) => {
     let result = [];
     for (let i = 0; i < arr.length; i++) {
@@ -24,7 +28,7 @@ function Messages({ existingPlaceInfo }) {
       return;
     }
     else {
-      // console.log('112323',chosenPlaceMessage);
+      // console.log('1123223',chosenPlaceMessage);
       let messageReverse = handleMessageReverse(chosenPlaceMessage)
       setChosenPlaceMessage(messageReverse)
     }
