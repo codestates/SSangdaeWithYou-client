@@ -4,9 +4,6 @@
 	
 [SSangdaeWithYou](https://ssangdaewithyou.com).
 
-<div style="text-align:center">This text will be centered.
-<p>So will this paragraph.</p></div>
-
 <hr>
 
 # Service
