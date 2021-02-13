@@ -93,6 +93,23 @@ function App() {
 
 
 //-----------------------------------------------------------------------
+  const quickSort = (arr, transform = (item) => item.distance) => {
+    if (arr.length <= 1) return arr;
+
+    const pivot = arr[0];
+    const left = [];
+    const right = [];
+
+    for (let i = 1; i < arr.length; i++) {
+      if (transform(arr[i]) < transform(pivot)) left.push(arr[i]);
+      else right.push(arr[i]);
+    }
+
+    const lSorted = quickSort(left, transform);
+    const rSorted = quickSort(right, transform);
+    return [...lSorted, pivot, ...rSorted];
+  }
+
   const handleListSmokePlaces = () => {
     axios
       .post('https://ssangdae.gq/list', {
@@ -100,7 +117,8 @@ function App() {
         longitude: mapClickedPlace.lng
       })
       .then((res) => {
-        setListSmokePlaces(res.data);
+        const result = quickSort(res.data)
+        setListSmokePlaces(result);
         console.log('list res :', res)
       })
   }
