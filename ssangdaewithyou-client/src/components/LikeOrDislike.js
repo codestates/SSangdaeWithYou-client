@@ -113,15 +113,15 @@ function LikeOrDislike({ existingPlaceInfo, userInfo }) {
     <div id="likeOrDislike">
       <div className="forLikeOrDislikeFrame">
         <div className="count">{chosenPlaceLike}</div>
-        <div id="like">
-          <img src="../img/like.jpg" className="likeOrDislikeImg" alt="profile" onClick={handleLikeButtonClick}/>
+        <div id="like" onClick={handleLikeButtonClick}>
+          <img src="../img/like.jpg" className="likeOrDislikeImg" alt="profile"/>
           <div id="likeOrDislikeText">추천해요</div>
         </div>
       </div>
       <div className="forLikeOrDislikeFrame">
         <div className="count">{chosenPlaceDislike}</div>
-        <div id="disLike">
-          <img src="../img/dislike.jpg" className="likeOrDislikeImg" alt="profile" onClick={handleDislikeButtonClick} />
+        <div id="disLike" onClick={handleDislikeButtonClick}>
+          <img src="../img/dislike.jpg" className="likeOrDislikeImg" alt="profile"/>
           <div id="likeOrDislikeText">비추해요</div>
         </div>
       </div>

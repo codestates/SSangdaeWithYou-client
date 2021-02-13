@@ -750,6 +750,7 @@ html,body {
   display: flex;
   flex: 0.1 1 auto;
   justify-content: center;
+  cursor: pointer;
 }
 
 .likeOrDislikeImg {
@@ -769,6 +770,7 @@ html,body {
   flex: 0.1 1 auto;
   margin: 0 0 0 1%;
   justify-content: center;
+  cursor: pointer;
 }
 
 #message {
@@ -837,6 +839,25 @@ html,body {
   font-size: 20px;
   margin-top: 7px;
   color: rgb(255, 255, 255);
+}
+
+.forSortFrame {
+  /* border: 1px solid rgb(0, 0, 0); */
+  font-size: 20px;
+  display: flex;
+  border-top: 3px solid #8e8e8e;
+  margin-top: 3%;
+  padding-top: 4%;
+}
+
+.forSortFrameEl {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.sortEl {
+  cursor : pointer;
 }
 
 #questList {
