@@ -1,4 +1,4 @@
-<center><img alt="스크린샷 2021-02-14 오전 12 17 36" src="https://user-images.githubusercontent.com/71421672/107853549-16966880-6e5a-11eb-8530-8e9374dc41ec.png" width=50% height=20%></center>
+<p align="center"><img alt="스크린샷 2021-02-14 오전 12 17 36" src="https://user-images.githubusercontent.com/71421672/107853549-16966880-6e5a-11eb-8530-8e9374dc41ec.png" width=50% height=20%></p>
 
 ## 흡연자들을 위한 흡연 구역 공유 사이트 쌍대는너와에 오신 것을 환영합니다
 	
