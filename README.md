@@ -3,7 +3,7 @@
 흡연자들을 위한 흡연 구역 공유 사이트 쌍대는너와에 오신 것을 환영합니다 
 ======================================================
 <br>
-[SSangdaeWithYou](https://ssangdaewithyou.com/)
+[SSangdaeWithYou] (https://ssangdaewithyou.com/, "Go Ssangdae")
 -----------------
 
 
