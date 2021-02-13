@@ -58,4 +58,4 @@
 <hr>
 
 # 기술 시연
-
+[시연 영상](https://github.com/codestates/SSangdaeWithYou-client/wiki/seeyeon)
