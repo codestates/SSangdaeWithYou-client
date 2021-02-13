@@ -1,12 +1,11 @@
 # SSangdaeWithYou
 
 ## 흡연자들을 위한 흡연 구역 공유 사이트 쌍대는너와에 오신 것을 환영합니다
-<center>This text will be centered.
-<p>So will this paragraph.</p></center>
-<br>
 	
 [SSangdaeWithYou](https://ssangdaewithyou.com).
 
+<div style="text-align:center">This text will be centered.
+<p>So will this paragraph.</p></div>
 
 <hr>
 
