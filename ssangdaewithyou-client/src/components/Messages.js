@@ -118,19 +118,26 @@ function Messages({ existingPlaceInfo }) {
         <div id="forAlignButton">
 
           {/* --------------------------- */}
-          <div onClick={() => {
-            setIsLatest(!isLatest)
-          }}>
-            {isLatest ? (
-              <div>최신순</div>
-              ) : (
-              <div>오래된순</div>
-          )}</div>
+          
           {/* --------------------------- */}
 
           <div id="messageButton" onClick={handleNewMessageSubmit}>
             <div id="messageButtonText">submit</div>
           </div>
+        </div>
+      </div>
+      <div className="forSortFrame">
+        <div className="forSortFrameEl"></div>
+        <div className="forSortFrameEl"></div>
+        <div className="forSortFrameEl">
+          <div onClick={() => {
+              setIsLatest(!isLatest)
+            }}>
+              {isLatest ? (
+                <div className="sortEl">최신순</div>
+                ) : (
+                <div className="sortEl">오래된순</div>
+            )}</div>
         </div>
       </div>
       {!chosenPlaceMessage ? (
