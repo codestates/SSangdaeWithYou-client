@@ -70,18 +70,21 @@ function App() {
 //-----------------------------------------------------------------------
   const handleUserInfo = () => {
     if (countLogin === 0) {
-      if (isLogin && !isKakao) {
+      if (isLogin || isKakao) {
+      // ! 카카오 로그인 마이페이지 test
+      // if (isLogin && !isKakao) {
         axios
         .post('https://ssangdae.gq/user/info')
         .then((res) => {
+          console.log(res.data)
           SetUserInfo(res.data)
           setCountLogin(1)
         })
         .catch((error) => {
           console.log('error : ', error)
         })
-      } else if (isKakao) {
-        SetUserInfo(null)
+      // } else if (isKakao) {
+      //   SetUserInfo(null)
       }
     }
   }
@@ -130,7 +133,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log('existingPlaceInfo:', existingPlaceInfo)
+    // console.log('existingPlaceInfo:', existingPlaceInfo)
   }, [existingPlaceInfo])
 //-----------------------------------------------------------------------
 
@@ -141,7 +144,7 @@ function App() {
       axios.get('https://ssangdae.gq/list/detail/getAllData')
         .then((res) => {
           setSmokePlaces(res.data)
-          console.log('smokePlaces : ', res.data);
+          // console.log('smokePlaces : ', res.data);
         })
     }
     return;

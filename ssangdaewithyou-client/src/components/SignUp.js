@@ -93,7 +93,7 @@ function SignUp({ handleIsSignUp }) {
           })
           .then((res) => {
             alert('회원가입이 완료되었습니다! 로그인을 해주세요.');
-            console.log(res)
+            // console.log(res)
           })
           .catch((err) => {
             // ! asdf
