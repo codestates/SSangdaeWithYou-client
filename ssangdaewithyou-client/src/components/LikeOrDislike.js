@@ -45,7 +45,7 @@ function LikeOrDislike({ existingPlaceInfo, userInfo }) {
         // ! qwer
         if (res.status === 200) {
           handleLikeUpdate()
-        } else if (res.status == 201) {
+        } else if (res.status === 201) {
           handleLikeUpdate()
           alert(res.data)
         } else if (res.status === 202) {
@@ -96,7 +96,7 @@ function LikeOrDislike({ existingPlaceInfo, userInfo }) {
         // ! qwer
         if (res.status === 200) {
           handleDislikeUpdate()
-        } else if (res.status == 201) {
+        } else if (res.status === 201) {
           handleDislikeUpdate()
           alert(res.data)
         } else if (res.status === 202) {
