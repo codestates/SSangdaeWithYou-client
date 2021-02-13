@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-function Nav({ handleIsLogin, isLogin, handleIsGuest, isModal }) {
+function Nav({ handleIsLogin, isLogin, handleIsGuest, isModal, resetState}) {
   const history = useHistory()
   
   return (
@@ -27,7 +27,7 @@ function Nav({ handleIsLogin, isLogin, handleIsGuest, isModal }) {
         <div className="navContents">
           {isLogin? (
             <div id="navLog" onClick={() => {
-              handleIsLogin()
+              resetState()
               history.push("/")
               axios
                 .post('https://ssangdae.gq/user/signout')
@@ -45,7 +45,8 @@ function Nav({ handleIsLogin, isLogin, handleIsGuest, isModal }) {
               }}></div>
             ) : (
               <div id="navLog" onClick={() => {
-                handleIsGuest()
+                resetState()
+                // handleIsGuest()
                 history.push("/")
               }}>Login</div>
             )
