@@ -32,6 +32,7 @@ function SignIn({ handleIsSignUp, handleIsLogin, handleIsKakao, handleIsGuest })
         authorizationCode: authorizationCode
       })
       .then((res) => {
+        console.log('kakao login res : ', res)
         alert('카카오 로그인을 하셨습니다.')
         handleIsLogin();
         handleIsKakao();
@@ -62,6 +63,7 @@ function SignIn({ handleIsSignUp, handleIsLogin, handleIsKakao, handleIsGuest })
         password: password
       })
       .then((res) => {
+        console.log('ssangdae login res : ', res)
         handleIsLogin();
       })
       .catch((error) => {

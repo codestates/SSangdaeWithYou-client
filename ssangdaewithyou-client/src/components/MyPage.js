@@ -8,6 +8,7 @@ function MyPage({ userInfo }) {
     <div>
       {!userInfo ? (
         <div>
+          {alert('카카오 로그인은 마이페이지를 열람할 수 없습니다.')}
           {history.push("/")}
         </div>
       ) : (

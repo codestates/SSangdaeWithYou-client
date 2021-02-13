@@ -19,7 +19,11 @@ import axios from 'axios'
 axios.defaults.withCredentials = true;
 
 function App() {
-  const [isLogin, setIsLogin] = useState(true);
+  // ---------------------fakedata qwer------------------------
+  const [isLogin, setIsLogin] = useState(false);
+  const [countLogin, setCountLogin] = useState(0)
+  // const [isLogin, setIsLogin] = useState(true);
+  // ----------------------------------------------------------
   const [isGuest, setIsGuest] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   // ! isModal 이 true면 map이 움직이지 않도록
@@ -29,8 +33,8 @@ function App() {
   // ! 아래의 smokePlaces 를 잘 활용해야 함
   // ! smokePlaces 는 (DB)smokePlaces 로 부터 axios
   // ---------------------fakedata qwer------------------------
-  // const [smokePlaces, setSmokePlaces] = useState(null)
-  const [smokePlaces, setSmokePlaces] = useState(fakeData.smokePlaces)
+  const [smokePlaces, setSmokePlaces] = useState(null)
+  // const [smokePlaces, setSmokePlaces] = useState(fakeData.smokePlaces)
   // ----------------------------------------------------------
   // ! existingPlaceInfo 는 이미 DB에 저장된 장소에 관련한 onClick 실행 시 관련 정보를 다루는 상태
   // ! Map 이던 List 이던 smokePlaces 의 데이타라는 점을 이용
@@ -40,8 +44,8 @@ function App() {
   const [mapClickedPlace, setMapClickedPlace] = useState({ lat: 0, lng: 0 })
   // ! DB랑 연결했을 때는 DB에서 쏴주는 정보를 userInfo에 주면 되므로, 일단은 fakeData 하나를 임의로 주겠다
   // ---------------------fakedata qwer------------------------
-  // const [userInfo, SetUserInfo] = useState(null)
-  const [userInfo, SetUserInfo] = useState(fakeData.users[0])
+  const [userInfo, SetUserInfo] = useState(null)
+  // const [userInfo, SetUserInfo] = useState(fakeData.users[0])
   // ----------------------------------------------------------
   // ! 리스트 처리 위한 state 추가
   const [listSmokePlaces, setListSmokePlaces] = useState(null);
@@ -65,17 +69,20 @@ function App() {
 
 //-----------------------------------------------------------------------
   const handleUserInfo = () => {
-    if (isLogin) {
-      axios
-      .post('https://ssangdae.gq/user/info')
-      .then((res) => {
-        SetUserInfo(res.data)
-      })
-      .catch((error) => {
-        console.log('error : ', error)
-      })
-    } else {
-      return;
+    if (countLogin === 0) {
+      if (isLogin && !isKakao) {
+        axios
+        .post('https://ssangdae.gq/user/info')
+        .then((res) => {
+          SetUserInfo(res.data)
+          setCountLogin(1)
+        })
+        .catch((error) => {
+          console.log('error : ', error)
+        })
+      } else if (isKakao) {
+        SetUserInfo(null)
+      }
     }
   }
   

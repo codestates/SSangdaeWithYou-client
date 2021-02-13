@@ -4,8 +4,8 @@ import axios from 'axios'
 
 function Messages({ existingPlaceInfo }) {
   // ! fakedata qwer ---------------------------------------------
-  // const [chosenPlaceMessage, setChosenPlaceMessage] = useState(null)
-  const [chosenPlaceMessage, setChosenPlaceMessage] = useState([{nickname:'123', message:'123'}, {nickname:'456', message:'456'}])
+  const [chosenPlaceMessage, setChosenPlaceMessage] = useState(null)
+  // const [chosenPlaceMessage, setChosenPlaceMessage] = useState([{nickname:'123', message:'123'}, {nickname:'456', message:'456'}])
   // ! -----------------------------------------------------------
   const [countMessage, setCountMessage] = useState(0)
   const [newMessage, setNewMessage] = useState('')

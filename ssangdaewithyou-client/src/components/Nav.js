@@ -50,7 +50,6 @@ function Nav({ handleIsLogin, isLogin, handleIsGuest, isModal }) {
               }}>Login</div>
             )
           )}
-
         </div>
       </div>
     </div>
