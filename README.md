@@ -8,13 +8,13 @@
 
 # Service
 
-![스크린샷 2021-02-13 오후 11 45 28](https://user-images.githubusercontent.com/71421672/107852715-a685e380-6e55-11eb-8774-e9e68a122fc3.png)
+<img width="1005" alt="스샷" src="https://user-images.githubusercontent.com/71421672/107852715-a685e380-6e55-11eb-8774-e9e68a122fc3.png">
 
 
 <hr>
 
 # Stacks
-<img width="1335" alt="스크린샷 2021-02-13 오후 11 25 22" src="https://user-images.githubusercontent.com/71421672/107852243-ffa04800-6e52-11eb-81fe-c481893ff50e.png">
+<img width="1005" alt="스크린샷 2021-02-13 오후 11 25 22" src="https://user-images.githubusercontent.com/71421672/107852243-ffa04800-6e52-11eb-81fe-c481893ff50e.png">
 
 <hr>
 
