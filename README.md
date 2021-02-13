@@ -1,10 +1,10 @@
 # SSangdaeWithYou
 
-흡연자들을 위한 흡연 구역 공유 사이트 쌍대는너와에 오신 것을 환영합니다 
+<center> 흡연자들을 위한 흡연 구역 공유 사이트 쌍대는너와에 오신 것을 환영합니다 </center>
 ======================================================
 <br>
-[SSangdaeWithYou] (https://ssangdaewithyou.com/, "Go Ssangdae")
------------------
+	
+<center> [SSangdaeWithYou](https://ssangdaewithyou.com). </center>
 
 
 <hr>
