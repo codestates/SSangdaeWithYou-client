@@ -1,5 +1,9 @@
-# SSangdaeWithYou-client
-[클라이언트 접속 링크](http://ssangdaewithyou.s3-website.ap-northeast-2.amazonaws.com/)
+# SSangdaeWithYou
+
+<center> ## 흡연자들을 위한 흡연 구역 공유 사이트 쌍대는너와에 오신 것을 환영합니다 </center>
+<center> [SSangdaeWithYou](https://ssangdaewithyou.com/) </center>
+
+
 <hr>
 
 # Service
