@@ -8,7 +8,7 @@ function SignIn({ handleIsSignUp, handleIsLogin, handleIsKakao, handleIsGuest })
 
   // ! Kakao 로그인 관련 ---------------------------------------------------------------
 
-  const KAKAO_LOGIN_URL = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=41920d05f8b54e037d992edc47bb99c2&redirect_uri=https://localhost:3000'
+  const KAKAO_LOGIN_URL = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=41920d05f8b54e037d992edc47bb99c2&redirect_uri=https://ssangdaewithyou.com/'
 
   const socialLoginHandler = () => {
     window.location.assign(KAKAO_LOGIN_URL)
