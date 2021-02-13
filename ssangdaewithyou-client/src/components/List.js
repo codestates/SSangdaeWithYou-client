@@ -1,9 +1,11 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useEffact } from 'react-router-dom';
 import ListElement from './ListElement';
 
 function List({ smokePlaces, handleExistingPlaceInfo, isLogin, listSmokePlaces}) {
   const history = useHistory()
+
+
 
   return (
     <div id="list">

@@ -47,7 +47,7 @@ function LikeOrDislike({ existingPlaceInfo, userInfo }) {
           handleLikeUpdate()
         } else if (res.status === 201) {
           handleLikeUpdate()
-          alert(res.data)
+          alert(res.data.data)
         } else if (res.status === 202) {
           alert(res.data)
         }
@@ -94,11 +94,12 @@ function LikeOrDislike({ existingPlaceInfo, userInfo }) {
       })
       .then((res) => {
         // ! qwer
+        // console.log('이건머야?',res);
         if (res.status === 200) {
           handleDislikeUpdate()
         } else if (res.status === 201) {
           handleDislikeUpdate()
-          alert(res.data)
+          alert(res.data.data)
         } else if (res.status === 202) {
           alert(res.data)
         }
