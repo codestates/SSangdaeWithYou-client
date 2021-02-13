@@ -67,20 +67,6 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
                 )}
               </div>
             )}
-            {/* {smokePlaces.map((smokePlace) =>
-              <Marker
-                key={smokePlace.id}
-                position={{ lat: smokePlace.latitude, lng: smokePlace.longitude}}
-                onClick={() => {
-                  if (isLogin) {
-                    handleExistingPlaceInfo(smokePlace);
-                    history.push("/list/detail")                  
-                  } else {
-                    alert('로그인을 해주세요.')
-                  }
-                }}
-              />
-            )} */}
           </NaverMap>
           {/* // ! Geolocation */}
           <Geolocation handleMapClick={handleMapClick}/>
@@ -142,20 +128,6 @@ function Map({ smokePlaces, handleExistingPlaceInfo , mapCenter, mapClickedPlace
                 )}
               </div>
             )}
-            {/* {smokePlaces.map((smokePlace) =>
-              <Marker
-                key={smokePlace.id}
-                position={{ lat: smokePlace.latitude, lng: smokePlace.longitude}}
-                onClick={() => {
-                  if (isLogin) {
-                    handleExistingPlaceInfo(smokePlace);
-                    history.push("/list/detail")                  
-                  } else {
-                    alert('로그인을 해주세요.')
-                  }
-                }}
-              />
-            )} */}
           </NaverMap>
           {/* // ! Geolocation */}
           <Geolocation handleMapClick={handleMapClick}/>

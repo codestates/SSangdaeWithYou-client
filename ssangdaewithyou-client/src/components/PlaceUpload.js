@@ -22,12 +22,10 @@ function PlaceUpload({ userInfo, mapClickedPlace, handleSmokePlacesToNull }) {
         headers: {
           'content-type': 'application/json'
         },
-        data: {
-          placeName: placeName,
-          comment: comment,
-          latitude: '37.503383',
-          longitude: '127.0184265'
-        }
+      placeName: placeName,
+      comment: comment,
+      latitude: String(mapClickedPlace.lat),
+      longitude: String(mapClickedPlace.lng)
       })
       .then((res) => {
         handleSmokePlacesToNull()
@@ -36,9 +34,7 @@ function PlaceUpload({ userInfo, mapClickedPlace, handleSmokePlacesToNull }) {
       })
       .catch((error) => {
         alert('정복에 실패햐셨습니다.')
-        console.log(error.response)
-        console.log(error.request)
-        console.log(error.messages)
+        console.log('error : ', error)
       })
   }
 

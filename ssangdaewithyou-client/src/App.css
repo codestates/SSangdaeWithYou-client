@@ -755,6 +755,7 @@ html,body {
 .likeOrDislikeImg {
   width: 48px;
   height: 39px;
+  cursor: pointer;
 }
 
 #likeOrDislikeText {

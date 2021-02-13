@@ -13,10 +13,10 @@ class UserLocation extends React.Component {
   componentDidUpdate() {
     if (!this.props.coords) {
       return;
-    } if (this.state.didUpdateCount === 0) {
+    } if (this.state.didUpdateCount < 1) {
       this.pinToUserLocation(this.props.coords.latitude, this.props.coords.longitude)
       this.setState({
-        didUpdateCount: 1
+        didUpdateCount: this.state.didUpdateCount + 1
       })
     }
   }

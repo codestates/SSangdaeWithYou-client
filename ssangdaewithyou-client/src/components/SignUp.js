@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function SignUp({ handleIsSignUp }) {
-  // 상태관리로 기본 true를 주고 
+  // 상태관리로 기본 true를 주고
   // 어떠한 조건이 부합하면 true, 부합하지 않으면 false
   const [checkId, setCheckId] = useState(true);
   const [checkPassword, setCheckPassword] = useState(true);
@@ -75,15 +75,15 @@ function SignUp({ handleIsSignUp }) {
     setNickname(e.target.value)
   };
 
- 
+
 
   const handleSignUp = () => {
     if (username !== '' || password !== '' || rePassword !== '' || email !== '' || nickname !== '') {
       if (!checkId || !checkPassword || !checkEm || !checkNn) {
         return;
       } else {
+        // ! asdf
         handleIsSignUp();
-        // ! 회원가입 요청을 axios로 날리자. 종훈님 여기에요!
         axios
           .post("https://ssangdae.gq/user/signup", {
             username: username,
@@ -96,8 +96,8 @@ function SignUp({ handleIsSignUp }) {
             console.log(res)
           })
           .catch((err) => {
-            // ! zxcvzxcv
-            alert('회원가입에 실패햐셨습니다. 이미 가입한 이메일일 수가 있어요ㅠㅠ 우리도 이유는 잘 몰라요ㅠㅠ');
+            // ! asdf
+            alert('기입하신 이메일 또는 아이디로 이미 회원가입이 되어있습니다. 다른 이메일 또는 아이디를 기입해주세요!');
             console.log(err)
           });
       }
@@ -105,38 +105,6 @@ function SignUp({ handleIsSignUp }) {
       return;
     }
   }
-  // ! reference
-  // const handleSignup = () => {
-  //   // TODO : 서버에 회원가입 요청 후 로그인 페이지로 이동 하세요.
-  //   //        로그인 페이지로 이동시, 다음 코드를 이용하세요.
-  //   //        this.props.history.push("/");
-  //   //
-  //   // TODO : 모든 항목을 입력하지 않았을 경우 에러를 표시해야 합니다.
-  //   const { email, password, mobile, username } = this.state;
-  //   if (!email || !password || !mobile || !username) {
-  //     this.setState({
-  //       errorMessage: "모든 항목은 필수입니다"
-  //     });
-  //     return;
-  //   }
-  //   else {
-  //     this.setState({
-  //       errorMessage: ""
-  //     });
-  //   }
-
-  //   axios
-  //     .post("https://localhost:4000/signup", {
-  //       email: email,
-  //       password: password,
-  //       username: username,
-  //       mobile: mobile,
-  //     })
-  //     .then((res) => {
-  //       this.props.history.push("/");
-  //     })
-  //     .catch((err) => console.log(err));
-  // }
 
   return (
     <div id="modalFrame">
