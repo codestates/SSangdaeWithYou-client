@@ -62,17 +62,23 @@ html,body {
   width: 150px;
 }
 
+.forModalImg {
+  display: flex;
+  justify-content: center;
+}
+
 .modalLogo {
   /* border: 1px solid rgb(0, 0, 0); */
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .modallogoImg {
-  height:60%;
+  padding-top: 10px;
+  height:60px;
   width: auto;
 }
 
@@ -136,6 +142,11 @@ html,body {
 }
 
 @media screen and (min-width: 900px) {
+  .modalLogo {
+    display: flex;
+    justify-content: center;
+  }
+
   .modalUserId {
     width: 80%;
     height: 50px;
@@ -174,14 +185,14 @@ html,body {
 }
 
 @media screen and (max-height: 665px) {
-  /* .modalLogo {
+  .modalLogo {
     display: flex;
     justify-content: center;
-  } */
+  }
   .modallogoImg {
-    margin-left: 25%;
-    height: 60%;
-    width: 50%;
+    /* margin-left: 25%; */
+    height: 70px;
+    width: 60px;
   }
 
   .modalLogoText1 {
@@ -231,13 +242,19 @@ html,body {
 @media screen and (max-height: 637px) {
   .modalLogo {
     /* border: 1px solid rgb(0, 0, 0); */
-    height: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .forModalImg {
+    margin-top: -20px;
   }
 
   .modallogoImg {
-    margin-left: 25%;
-    height: 70%;
-    width: 50%;
+    /* margin-left: 25%; */
+    height: 50px;
+    width: 40px;
   }
 
   .modalUserId {
