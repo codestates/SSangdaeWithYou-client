@@ -1,18 +1,75 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Message from './Message';
+import axios from 'axios'
 
-function Messages({ chosenPlaceMessage }) {
+function Messages({ existingPlaceInfo }) {
+  const [chosenPlaceMessage, setChosenPlaceMessage] = useState(null)
+  const [countMessage, setCountMessage] = useState(0)
   const [newMessage, setNewMessage] = useState('')
 
+
+  //-----------------------------------------------------------------------
+  const [chosenPlaceMessageReverse, setChosenPlaceMessageReverse] = useState(null)
+
+
+  const handleChosenPlaceMessageReverse = () => {
+
+  }
+  //-----------------------------------------------------------------------
+
+
+  //-----------------------------------------------------------------------
+  const handleMessageUpdate = () => {
+    setCountMessage(0)
+  }
+
+  useEffect(() => {
+    if (countMessage === 0) {
+      axios
+        .post('https://ssangdae.gq/list/detail/getMessage', {
+          headers: {
+            'content-type': 'application/json'
+          },
+          placeId : existingPlaceInfo.id,
+        })
+        .then((res) => {
+          setChosenPlaceMessage(res.data)
+          setCountMessage(1)
+        })
+        .catch((error) => {
+          console.log('error : ', error)
+      })
+    // setChosenPlaceMessage(fakeData.messages)
+    }
+  })
+  //-----------------------------------------------------------------------
+
+
+  //-----------------------------------------------------------------------
   const handleInputValueNewMessage = (e) => {
     setNewMessage(e.target.value)
-    console.log(newMessage)
   }
 
   // ! 서버에 post 요청 후 res로 받아오는 messages 랜더링
   const handleNewMessageSubmit = () => {
-    alert('handleNewMessageSubmit clicked')
+    axios
+      .post('https://ssangdae.gq/list/detail/inputMessage', {
+        headers: {
+          'content-type': 'application/json'
+        },
+        text: newMessage,
+        placeId: existingPlaceInfo.id
+      })
+      .then((res) => {
+        handleMessageUpdate()
+      })
+      .catch((error) => {
+        console.log('error : ', error)
+        alert('메세지 입력 오류')
+      })
   }
+  //-----------------------------------------------------------------------
+
 
   return (
     <div id="message">
@@ -26,11 +83,11 @@ function Messages({ chosenPlaceMessage }) {
           </div>
         </div>
       </div>
-      {/* {!chosenPlaceMessage ? (
+      {!chosenPlaceMessage ? (
         <div></div>
       ) : (
         chosenPlaceMessage.map((message, idx) => <Message message={message} key={idx} />) // ! key 대충 준거라 나중에 check
-      )} */}
+      )}
     </div>
   )
 }

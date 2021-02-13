@@ -19,7 +19,7 @@ import axios from 'axios'
 axios.defaults.withCredentials = true;
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [isGuest, setIsGuest] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   // ! isModal 이 true면 map이 움직이지 않도록
@@ -28,7 +28,10 @@ function App() {
   const [isKakao, setIsKakao] = useState(false);
   // ! 아래의 smokePlaces 를 잘 활용해야 함
   // ! smokePlaces 는 (DB)smokePlaces 로 부터 axios
-  const [smokePlaces, setSmokePlaces] = useState(null)
+  // ---------------------fakedata qwer------------------------
+  // const [smokePlaces, setSmokePlaces] = useState(null)
+  const [smokePlaces, setSmokePlaces] = useState(fakeData.smokePlaces)
+  // ----------------------------------------------------------
   // ! existingPlaceInfo 는 이미 DB에 저장된 장소에 관련한 onClick 실행 시 관련 정보를 다루는 상태
   // ! Map 이던 List 이던 smokePlaces 의 데이타라는 점을 이용
   const [existingPlaceInfo, setExistingPlaceInfo] = useState(null)
@@ -36,7 +39,10 @@ function App() {
   const [mapCenter, setMapCenter] = useState({ lat: 37.510744, lng: 126.9818086 }); // ! 대략 서울 중심
   const [mapClickedPlace, setMapClickedPlace] = useState({ lat: 0, lng: 0 })
   // ! DB랑 연결했을 때는 DB에서 쏴주는 정보를 userInfo에 주면 되므로, 일단은 fakeData 하나를 임의로 주겠다
-  const [userInfo, SetUserInfo] = useState(null)
+  // ---------------------fakedata qwer------------------------
+  // const [userInfo, SetUserInfo] = useState(null)
+  const [userInfo, SetUserInfo] = useState(fakeData.users[0])
+  // ----------------------------------------------------------
   // ! 리스트 처리 위한 state 추가
   const [listSmokePlaces, setListSmokePlaces] = useState(null);
 
@@ -63,13 +69,10 @@ function App() {
       axios
       .post('https://ssangdae.gq/user/info')
       .then((res) => {
-        // ! zxcvzxcv
         SetUserInfo(res.data)
       })
       .catch((error) => {
-        console.log(error.respsonse)
-        console.log(error.request)
-        console.log(error.message)
+        console.log('error : ', error)
       })
     } else {
       return;
@@ -158,13 +161,13 @@ function App() {
               <PageMain/>
             </Route> */}
             <Route path="/user/info">
-              <PageMyPage userInfo={userInfo} isKakao={isKakao} />
+              <PageMyPage userInfo={userInfo} />
             </Route>
             <Route path="/place/upload">
               <PagePlaceUpload userInfo={userInfo} mapClickedPlace={mapClickedPlace} handleSmokePlaces={handleSmokePlaces} handleSmokePlacesToNull={handleSmokePlacesToNull}/>
             </Route>
             <Route path="/list/detail">
-              <PageListDetail existingPlaceInfo={existingPlaceInfo} />
+              <PageListDetail existingPlaceInfo={existingPlaceInfo} userInfo={userInfo} />
             </Route>
             <Route path="/easterEgg">
               <PageEasterEgg />
@@ -186,13 +189,13 @@ function App() {
                   <PageMain/>
                 </Route> */}
                 <Route path="/user/info">
-                  <PageMyPage userInfo={userInfo} isKakao={isKakao} />
+                  <PageMyPage userInfo={userInfo} />
                 </Route>
                 <Route path="/place/upload">
                   <PagePlaceUpload userInfo={userInfo} mapClickedPlace={mapClickedPlace} handleSmokePlaces={handleSmokePlaces} handleSmokePlacesToNull={handleSmokePlacesToNull}/>
                 </Route>
                 <Route path="/list/detail">
-                  <PageListDetail existingPlaceInfo={existingPlaceInfo} />
+                  <PageListDetail existingPlaceInfo={existingPlaceInfo} userInfo={userInfo}/>
                 </Route>
                 <Route path="/easterEgg">
                   <PageEasterEgg />

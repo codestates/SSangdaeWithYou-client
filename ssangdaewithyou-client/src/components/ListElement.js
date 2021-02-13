@@ -5,18 +5,15 @@ function ListElement({ listSmokePlace, handleExistingPlaceInfo, isLogin }) {
   const history = useHistory()
 
   return (
-      // ! UI/UX 위해 CSS 추가 className="listEl" 에 cursor: pointer;
-      // ! <div id="listEl"> 를 <div className="listEl"> 으로 변경
       <div className="listEl" onClick={() => {
         if (isLogin) {
           handleExistingPlaceInfo(listSmokePlace)
           history.push("/list/detail")
-          // alert(smokePlace.id)          
         } else {
           alert('로그인을 해주세요.')
         }
       }}>
-        {/* // ! zxcvzxcv */}
+        {/* // ! asdf 시간 날 때 거리에 대한 로직(아마 버블sort 이용할 듯) 구현하기 */}
         <div className="listPlaceName">{listSmokePlace.placeName}</div>
         <div className="listPlaceUser">지금 위치로 부터 {parseInt(listSmokePlace.distance)} m</div>
       </div>

@@ -27,18 +27,15 @@ function Nav({ handleIsLogin, isLogin, handleIsGuest, isModal }) {
         <div className="navContents">
           {isLogin? (
             <div id="navLog" onClick={() => {
-              alert('로그아웃을 하셨습니다.')
               handleIsLogin()
               history.push("/")
               axios
                 .post('https://ssangdae.gq/user/signout')
                 .then((res) => {
-                  console.log('logout res : ', res)
+                  alert('로그아웃을 하셨습니다.')
                 })
                 .catch((error) => {
-                  console.log(error.response)
-                  console.log(error.request)
-                  console.log(error.message)
+                  console.log('error : ', error)
                 })
             }}>Logout</div>
           ) : (
