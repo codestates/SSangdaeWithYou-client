@@ -3,20 +3,31 @@ import Message from './Message';
 import axios from 'axios'
 
 function Messages({ existingPlaceInfo }) {
-  const [chosenPlaceMessage, setChosenPlaceMessage] = useState(null)
+  // ! fakedata qwer ---------------------------------------------
+  // const [chosenPlaceMessage, setChosenPlaceMessage] = useState(null)
+  const [chosenPlaceMessage, setChosenPlaceMessage] = useState([{nickname:'123', message:'123'}, {nickname:'456', message:'456'}])
+  // ! -----------------------------------------------------------
   const [countMessage, setCountMessage] = useState(0)
   const [newMessage, setNewMessage] = useState('')
+  const [isLatest, setIsLatest] = useState(true)
 
-
-  //-----------------------------------------------------------------------
-  const [chosenPlaceMessageReverse, setChosenPlaceMessageReverse] = useState(null)
-
-
-  const handleChosenPlaceMessageReverse = () => {
-
+  const handleMessageReverse = (arr) => {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+      result.push(arr[arr.length - i - 1])
+    }
+    return result;
   }
-  //-----------------------------------------------------------------------
 
+  useEffect(() => {
+    if (!chosenPlaceMessage) {
+      return;
+    }
+    else {
+      let messageReverse = handleMessageReverse(chosenPlaceMessage)
+      setChosenPlaceMessage(messageReverse)
+    }
+  }, [isLatest])
 
   //-----------------------------------------------------------------------
   const handleMessageUpdate = () => {
@@ -33,7 +44,8 @@ function Messages({ existingPlaceInfo }) {
           placeId : existingPlaceInfo.id,
         })
         .then((res) => {
-          setChosenPlaceMessage(res.data)
+          let MessagesFromTheLatest = handleMessageReverse(res.data)
+          setChosenPlaceMessage(MessagesFromTheLatest)
           setCountMessage(1)
         })
         .catch((error) => {
@@ -43,6 +55,32 @@ function Messages({ existingPlaceInfo }) {
     }
   })
   //-----------------------------------------------------------------------
+  // ! 혹시 위의 것이 망쳐지면 아래의 것을 쓰도록
+  // //-----------------------------------------------------------------------
+  // const handleMessageUpdate = () => {
+  //   setCountMessage(0)
+  // }
+
+  // useEffect(() => {
+  //   if (countMessage === 0) {
+  //     axios
+  //       .post('https://ssangdae.gq/list/detail/getMessage', {
+  //         headers: {
+  //           'content-type': 'application/json'
+  //         },
+  //         placeId : existingPlaceInfo.id,
+  //       })
+  //       .then((res) => {
+  //         setChosenPlaceMessage(res.data)
+  //         setCountMessage(1)
+  //       })
+  //       .catch((error) => {
+  //         console.log('error : ', error)
+  //     })
+  //   // setChosenPlaceMessage(fakeData.messages)
+  //   }
+  // })
+  // //-----------------------------------------------------------------------
 
 
   //-----------------------------------------------------------------------
@@ -78,6 +116,18 @@ function Messages({ existingPlaceInfo }) {
         <textarea placeholder="댓글 추가" id="userText" onChange={handleInputValueNewMessage}></textarea>
         <div className="forUserMessageTop"></div>
         <div id="forAlignButton">
+
+          {/* --------------------------- */}
+          <div onClick={() => {
+            setIsLatest(!isLatest)
+          }}>
+            {isLatest ? (
+              <div>최신순</div>
+              ) : (
+              <div>오래된순</div>
+          )}</div>
+          {/* --------------------------- */}
+
           <div id="messageButton" onClick={handleNewMessageSubmit}>
             <div id="messageButtonText">submit</div>
           </div>
