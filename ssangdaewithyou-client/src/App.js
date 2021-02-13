@@ -49,6 +49,22 @@ function App() {
   // ----------------------------------------------------------
   // ! 리스트 처리 위한 state 추가
   const [listSmokePlaces, setListSmokePlaces] = useState(null);
+  
+
+  const resetState = () => {
+    setIsLogin(false)
+    setCountLogin(0)
+    setIsGuest(false)
+    setIsSignUp(false)
+    setIsModal(true)
+    setIsKakao(false)
+    setSmokePlaces(null)
+    setExistingPlaceInfo(null)
+    setMapCenter({ lat: 37.510744, lng: 126.9818086 })
+    setMapClickedPlace({ lat: 0, lng: 0 })
+    SetUserInfo(null)
+    setListSmokePlaces(null)
+  }
 
   const handleIsKakao = () => {
     setIsKakao(!isKakao)
@@ -196,7 +212,7 @@ function App() {
     isLogin || isGuest ? (
       <div id="view">
         <Router>
-          <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest} />
+          <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest} resetState={resetState} />
           <Switch>
             {/* <Route exact={true} path="/">
               <PageMain/>
@@ -224,7 +240,7 @@ function App() {
         <div id="overlayWrapper">
           <Modal isSignUp={isSignUp} handleIsSignUp={handleIsSignUp} handleIsLogin={handleIsLogin} handleIsKakao={handleIsKakao} handleIsGuest={handleIsGuest} />
           <div id="overlayView">
-              <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest} isModal={isModal}/>
+              <Nav handleIsLogin={handleIsLogin} isLogin={isLogin} handleIsGuest={handleIsGuest} isModal={isModal} resetState={resetState} />
               <Switch>
                 {/* <Route exact={true} path="/">
                   <PageMain/>
