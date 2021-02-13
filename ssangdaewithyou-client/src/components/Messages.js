@@ -24,6 +24,7 @@ function Messages({ existingPlaceInfo }) {
       return;
     }
     else {
+      // console.log('112323',chosenPlaceMessage);
       let messageReverse = handleMessageReverse(chosenPlaceMessage)
       setChosenPlaceMessage(messageReverse)
     }
@@ -44,9 +45,16 @@ function Messages({ existingPlaceInfo }) {
           placeId : existingPlaceInfo.id,
         })
         .then((res) => {
-          let MessagesFromTheLatest = handleMessageReverse(res.data)
-          setChosenPlaceMessage(MessagesFromTheLatest)
-          setCountMessage(1)
+          // console.log('머야?',res.data);
+          if (res.data !== '메세지가 없습니다.') {
+            let MessagesFromTheLatest = handleMessageReverse(res.data)
+            setChosenPlaceMessage(MessagesFromTheLatest)
+            setCountMessage(1)
+          } else {
+            // alert(res.data)
+            setCountMessage(1)
+          }
+          
         })
         .catch((error) => {
           console.log('error : ', error)
