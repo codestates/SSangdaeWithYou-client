@@ -31,7 +31,7 @@
 
 |TEAM|Position|Blog|Github
 |--|--|--|--|
-|😎 이인수|FrontEnd| [보여줄이름](주소) | [보여줄이름](주소)|
+|😎 이인수|FrontEnd| [Velog](https://velog.io/@in63119) | [보여줄이름](주소)|
 |🤩 심종훈|FrontEnd| [보여줄이름](주소) | [보여줄이름](주소)|
 |🧐 선종권|BackEnd| [Velog](https://velog.io/@sosick0418) | [sosick0418](https://github.com/sosick0418)|
 |🤓 김현수|BackEnd| [Velog](https://velog.io/@jing07161)|[Hyunsoo-Dev](https://github.com/Hyunsoo-dev)|
