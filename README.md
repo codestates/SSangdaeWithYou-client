@@ -13,7 +13,7 @@
 
 <img width="1005" alt="스샷" src="https://user-images.githubusercontent.com/71421672/107852715-a685e380-6e55-11eb-8774-e9e68a122fc3.png">
 
-<img alt="시연" scr="https://user-images.githubusercontent.com/71421672/107867067-b388ee00-6eba-11eb-99ed-ec2108e7fbcd.gif" >
+<img width="1005" alt="시연" src="https://user-images.githubusercontent.com/71421672/107867186-1c249a80-6ebc-11eb-9563-98d87b73aa28.gif">
 
 
 <hr>
