@@ -15,7 +15,7 @@
 
 <img width="1005" alt="시연" src="https://user-images.githubusercontent.com/71421672/107867186-1c249a80-6ebc-11eb-9563-98d87b73aa28.gif">
 
-<img width="1005" alt="정복" src="https://user-images.githubusercontent.com/71421672/107867307-3e6ae800-6ebd-11eb-9067-d2738e987ea0.gif">
+<img width="1005" alt="정복" src="https://user-images.githubusercontent.com/71421672/107867494-b38aed00-6ebe-11eb-8cf7-facada8e6f2d.gif">
 
 
 
